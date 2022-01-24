@@ -1,0 +1,9 @@
+Varname, value
+pythonPath,C:\ProgramData\Miniconda3\python.exe
+scriptPath,D:\FACILITY\QUAREP\pythonScripts\measurePowers.pyw
+dataSavePath,D:\FACILITY\QUAREP\output\
+dataSavePrefix,output
+dataSaveExt,.csv
+expPath,D:\FACILITY\QUAREP\Configs\
+prefix,LPM
+expExt,.czexp

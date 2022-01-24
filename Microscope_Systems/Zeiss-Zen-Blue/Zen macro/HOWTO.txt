@@ -1,0 +1,5 @@
+Copy the python file (currntly called QUAREP-LPM.py) into:
+
+C:\Users\desiredUsser\Documents\Carl Zeiss\ZEN\Documents\Macros
+
+If desiredUsser is "all users" the macro will be available for all windows users

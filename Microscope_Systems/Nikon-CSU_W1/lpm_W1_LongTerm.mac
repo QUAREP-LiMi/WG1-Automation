@@ -1,0 +1,115 @@
+//
+// Copyright 2022 Nasser Darwish Miranda
+
+// @author: Nasser Darwish, IST Austria
+
+// This program is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+
+//    This program is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+
+//    You should have received a copy of the GNU General Public License
+//    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+char output[512];
+char script[512];
+
+char * baseScript;
+char * path = "D:\FACILITY\LPM_output\output";
+char * extension = ".csv ";
+
+int duration; //duration in seconds
+int avgTime;
+int wavelengths[4];
+int line[7];
+int filter[7];
+int lambdaInd;
+int lambdaInd2;
+int buff;
+int CSUshutterOpen;
+int CSUshutterClosed;
+int powerSetting;
+int loopInd;
+// Choose the light path on the panel:
+
+// Position 1 -> Eyepiece DIA
+// Position 2 -> Eyepiece EPI (use this one to skip camera)
+Stg_SetLightPathPosition(2);
+// Position 3 -> Qi2 DIA
+// Position 4 -> Qi2 EPI
+
+wavelengths[0] = 405;
+wavelengths[1] = 488;
+wavelengths[2] = 561;
+wavelengths[3] = 640;
+
+line[0] = 0; 
+line[1] = 1;
+line[2] = 2;
+line[3] = 3;
+
+duration     = 30;   //Duration per wavelength, in seconds
+powerSetting = 100;  //Power percentage applied
+avgTime      = 30;   //Average time
+
+Stg_Filter_SetPosition("Turret-Lo", 0);   // Empty filter position, for laser modes
+Stg_SetLightPathPosition(3); // LS port for the lasers
+Stg_SetDiskSpeed(4000);      // CSU disc at maximum speed
+
+for(loopInd = 0; loopInd < 60; ++loopInd){
+// For long term measurements: 60 times, 30s each, 4 lines, aprox 2min/loop, 2h in total
+
+for(lambdaInd = 0; lambdaInd < 4; ++lambdaInd)
+   {
+
+   baseScript = "cmd.exe /C C:\ProgramData\Miniconda3\python.exe D:\FACILITY\LPM-PythonScriptsAndDependencies\measurePowers.pyw";
+   
+   sprintf(script,"%s %d %s%d%s %d %d", "baseScript, wavelengths[lambdaInd], path, wavelengths[lambdaInd], extension, duration, avgTime");
+   for(lambdaInd2 = 0; lambdaInd2 < 4; ++lambdaInd2){
+      if(lambdaInd2!=lambdaInd){
+         Stg_SetMultiLaserLineUsed("AOTF",line[lambdaInd2],0);
+      }
+   }
+   
+   Stg_SetMultiLaserLineUsed("AOTF",line[lambdaInd],1); // Open shutter
+   Stg_SetMultiLaserPower("AOTF",line[lambdaInd],powerSetting);
+   Stg_SetShutterStateEx("AOTF", 1);
+
+
+   Stg_SetCSUShutterState(CSUshutterOpen);
+
+   Wait(duration+1); // 1s additional to improve synchronization
+
+   // Start Thorlabs PM
+   Int_ExecProgram(script);
+   
+   Wait(duration);
+   
+   Stg_SetCSUShutterState(CSUshutterClosed);
+   
+   Stg_SetMultiLaserPower("AOTF",line[lambdaInd],0); // Set the power to 0
+   Stg_SetShutterStateEx("AOTF", 0);
+
+}
+
+
+
+}
+
+
+
+
+sprintf(output,"%s", "script");
+Int_CreateWindow(WND_1,"sprintf example",0, 0, 0, 450, 560,"Header:\n\n",1,1,0.00000,1,1,1,"Arial,B,8");
+Int_SetWindowText(WND_1, output, TRUE);
+
+
+
+
+
+ �

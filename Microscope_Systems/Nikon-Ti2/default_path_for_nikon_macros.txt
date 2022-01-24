@@ -1,0 +1,2 @@
+C:\Program Files\NIS-Elements\Macros
+For the accessory files any path is possible, but it has to be specified on the code
