@@ -19,5 +19,5 @@ This project is licensed under the ... license
 
 ## Acknowledgments
 
-* QUAREP-LiMi 
+* <a href="https://quarep.org/">QUAREP-LiMi</a>
 
