@@ -8,7 +8,15 @@ The QUAREP-LiMi power and stability assessment protocol [external protocol link]
 QUAREP LiMi provides examples (scripts, documentation and videos) that can be adapted to a series of <a href="/Microscope_Systems/"> microscopes</a>.
 
 ## Want to see a short video showcasing a illumination power measurements?
+[![Watch the video](https://img.youtube.com/vi/2dPq9gljJ-4/maxresdefault.jpg)](https://www.youtube.com/watch?v=2dPq9gljJ-4)
 
+<table width="600" border="0">
+  <tbody>
+    <tr>
+      <td>https://www.youtube.com/watch?v=2dPq9gljJ-4</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Authors
 
