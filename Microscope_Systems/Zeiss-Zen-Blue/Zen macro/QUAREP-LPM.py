@@ -105,7 +105,7 @@ linesToCheck = len(activeLines)
 # Duration of the measurements, in seconds:
 if winOutput.GetValue("checkType") == "short term stability":
     print("short: 5min every second one after another")
-    duration = 300;
+    duration = 60;
     avgTime = 1;
     durationms = duration * 10# Later we change it to 1000
     # For the short tests lines are checked oine after another
@@ -143,16 +143,21 @@ if winOutput.GetValue("checkType") == "short term stability":
 
 if winOutput.GetValue("checkType") == "long term stability":
     print("long: 2h, every 5min over all lines ")
-    duration = 7200;
-    interval = 300;
-    avgTime = 30;
+    #duration = 7200;
+    #interval = 300;
+    #avgTime = 30;
+    
+    duration = 120;
+    interval = 20;
+    avgTime = 10;
+    
     # Switching between lines makes sense only for the long test:
 
 
     # Time available per line
     switchTime = 0.5 #Assuming 0.5s needed to change between lines
-    timePerLine = int(interval / linesToCheck) - switchTime
-    print(timePerLine)
+    timePerLine = int(interval / linesToCheck) - switchTime * (linesToCheck - 1)
+    print("Time per line" + str(timePerLine))
 
     # time loop
     timeExhausted = False
@@ -170,7 +175,6 @@ if winOutput.GetValue("checkType") == "long term stability":
             experiment1 = ZenExperiment()            
             experiment1.Load(expString)
             Zen.Acquisition.Experiments.Add(experiment1)
-            hardwaresetting1.SetParameter('MTBLM800AttenuatorShutter', 'Position', '5')
             
             # Turn Laser on
             Zen.Acquisition.StartContinuous(experiment1)
@@ -183,9 +187,10 @@ if winOutput.GetValue("checkType") == "long term stability":
             processedStr = expPath + prefix + str(slambda) + expExt
             experiment1.SaveAs(processedStr)
             # Time checks to test only after the wavelength loop completes
-            print(currTime-initialTime)
-            if currTime-initialTime > duration:
-                timeExhausted = True;
-                break
+            elapsedTime = currTime-initialTime
+            print("Elapsed time:" + str(elapsedTime))
+        if elapsedTime > duration:
+            timeExhausted = True;
+            break
 
     print("Long term measurement completed")
