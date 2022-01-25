@@ -15,7 +15,7 @@ This program is free software: you can redistribute it and/or modify
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	
-This program allows automatic power measurements for Zeiss microscopes running Zen Blue
+This program allows automatic power measurements for Nikon microscopes running NIS Elements (<b> which version?</b> )
 
 This software follows this hierarchy: Nikon macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
 
