@@ -106,8 +106,7 @@ linesToCheck = len(activeLines)
 if winOutput.GetValue("checkType") == "short term stability":
     print("short: 5min every second one after another")
     duration = 300;
-    interval = 1;
-    avgTime = 30;
+    avgTime = 1;
     durationms = duration * 10# Later we change it to 1000
     # For the short tests lines are checked oine after another
     # Wavelength loop
@@ -127,7 +126,7 @@ if winOutput.GetValue("checkType") == "short term stability":
 
         time.sleep(1);
 
-        scriptCommand = pythonPath + " " + " " + scriptPath + " " + str(slambda) + " " + dataSavePath + dataSavePrefix + str(slambda) + dataSaveExt + " " + str(timePerLine) + str(avgTime) +" &amp;"
+        scriptCommand = pythonPath + " " + " " + scriptPath + " " + str(slambda) + " " + dataSavePath + dataSavePrefix + str(slambda) + dataSaveExt + " " + str(duration) + " " + str(avgTime) +" &"
         print(scriptCommand)
 
         subprocess.call(scriptCommand)
@@ -163,7 +162,7 @@ if winOutput.GetValue("checkType") == "long term stability":
         # Wavelength loop
         for lambdaInd in activeLines:
             slambda = wavelength[lambdaInd]
-            scriptCommand = pythonPath + " " + " " + scriptPath + " " + str(slambda) + " " + dataSavePath + dataSavePrefix + str(slambda) + dataSaveExt + " " + str(timePerLine) + str(avgTime) +" &amp;"
+            scriptCommand = pythonPath + " " + " " + scriptPath + " " + str(slambda) + " " + dataSavePath + dataSavePrefix + str(slambda) + dataSaveExt + " " + str(timePerLine) + " " + str(avgTime) +" &"
 
             # Setup the experiment:
             expString = expPath + prefix + str(slambda) + expExt
