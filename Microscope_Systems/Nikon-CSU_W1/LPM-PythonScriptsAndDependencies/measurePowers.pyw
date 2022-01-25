@@ -1,4 +1,4 @@
-﻿from ctypes import cdll, c_long, c_ulong, c_uint32, byref, create_string_buffer, c_bool, c_char_p, c_int, c_int16, \
+from ctypes import cdll, c_long, c_ulong, c_uint32, byref, create_string_buffer, c_bool, c_char_p, c_int, c_int16, \
     c_double, sizeof, c_voidp
 from TLPM import TLPM
 from datetime import datetime, timedelta
@@ -48,7 +48,7 @@ if len(sys.argv) > 4:
     #print(sys.argv[4])
     avgTime = int(sys.argv[4])
 	
-time.sleep(0.1)	#Without this delay the first number is consistently higher than the rest
+time.sleep(1.5)	#Without this delay the first number is consistently higher than the rest
 
 tmp = c_double()
 tlPM.getWavelength(0,byref(tmp))
@@ -58,7 +58,7 @@ start = datetime.now()
 measure_until = start + timedelta(seconds=duration)
 average_until = start
 while datetime.now() < measure_until:
-    average_until += timedelta(seconds=avgTime)	
+    average_until += timedelta(seconds=avgTime)
     average_count = 0
     total_power = 0
     start_average = datetime.now()	
