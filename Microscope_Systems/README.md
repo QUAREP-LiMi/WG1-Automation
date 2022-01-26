@@ -1,6 +1,6 @@
 <img src="/Images/QUAREP_logo_stacked.svg" alt="QUAREP-LiMi Logo" width=20%>
 
-# Measurement Automation of Microscope Illumination Power and Stability Use Cases
+# Measurement Automation Use Cases
 
 
 ## Nikon Instruments
