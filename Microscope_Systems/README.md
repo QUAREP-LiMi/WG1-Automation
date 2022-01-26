@@ -16,7 +16,7 @@
 
 ## License
 
-This project is licensed under the ... license
+GNU General Public License v3.0 **???**
 
 ## Acknowledgments
 
