@@ -5,7 +5,7 @@ Copyright 2022 Nasser Darwish Miranda
 This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+    (at your option) any later version (TO BE DISCUSSED AT WG1 MEETING)
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -45,7 +45,7 @@ also distributed by Tholabs GmbH.
 All rights for the files created by other authors belong to them. Please review their
 license terms and follow their instructions to get the up to date versions.
 
-Disclaimer
+Disclaimer (TO BE DISCUSSED AT THE WG1 USER GROUP MEETING)
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
 OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
