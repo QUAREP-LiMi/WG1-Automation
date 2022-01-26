@@ -25,4 +25,7 @@ This project is licensed under the GNU General Public License v3.0 **???**
 ## Disclaimer
 
 ## Laser Safety
-Before you carry out measurements, it is important to familiarize yourself with all local laser safety rules and requirements for eye and skin protection.
+-	The intense lasers, lamps, and other light sources used for microscopy are frequently eye safety hazards. Follow proper laser safety protocols for your equipment and situation.
+-	Measuring high-intensity light sources exposes the operator to potentially hazardous optical power levels. This procedure presents a potentially radiation hazard. Specific parameters of the radiation are determined by the product used. Please refer to the documentation provided by the manufacturer for additional warnings and PPE requirements (e.g. laser safety goggles). Consult with your local Laser Safety Officer or refer to your laboratory safety documentation for more information.
+-	Consult Laser Safety Standards ANSI Z136 in North America and SUVA 66049.D in Europe, BS EN 60825-1 in the UK. Additionally, laser safety is covered by IEC norm 60825-1 and LED eye safety is covered by IEC norm 62471 for Europe. The documents applicable to your region will be available through your local designated Laser Safety Officer or Radiation Safety Office for your institution.
+
