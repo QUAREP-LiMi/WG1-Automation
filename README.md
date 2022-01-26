@@ -16,10 +16,12 @@ YouTube link: https://www.youtube.com/watch?v=2dPq9gljJ-4
 
 * **QUAREP-LiMi [Working Group 1 members](https://quarep.org/working-groups/wg-1-illumination-power/wg-1-members/)** 
 
-## License
-
-This project is licensed under the GNU General Public License v3.0 **???**
-
 ## Acknowledgments
 
 * <a href="https://quarep.org/">QUAREP-LiMi</a>
+## License
+This project is licensed under the GNU General Public License v3.0 **???**
+
+## Disclaimer
+
+## Laser Safety
