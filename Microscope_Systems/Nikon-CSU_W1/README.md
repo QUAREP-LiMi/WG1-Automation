@@ -15,9 +15,12 @@ This program is free software: you can redistribute it and/or modify
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	
-This program allows automatic power measurements for Nikon microscopes running NIS Elements (<b> which version?</b> )
+This program allows automatic power measurements for: 
+- Nikon Eclipse Ti2 CSU-W1 Spinning Disk (NIS Elements Ver. 5.x) + Omicron LightHUB Ultra + Thorlabs PM100USB (Optical Power Monitor Ver. 3.1) 
 
-This software follows this hierarchy: Nikon macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
+
+The underlying hierarchy is: 
+- Nikon macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
 
 
 The Nikon macro runs under NIS Elements. To make it available:
@@ -29,7 +32,7 @@ The Nikon macro connects to a python interpreter (miniconda suggested) and invok
 measurePowersThorlabs.pyw script. Finally, the TLPM files bring the low level access to the 
 power meter device.
 
-Currently the configurations cannot be loaded from separate files and the .mac script 
+Currently, the configurations cannot be loaded from separate files and the .mac script 
 still has to be edited per system. 
 
 
