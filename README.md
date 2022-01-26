@@ -18,7 +18,7 @@ YouTube link: https://www.youtube.com/watch?v=2dPq9gljJ-4
 
 ## License
 
-This project is licensed under the ..?..
+This project is licensed under the GNU General Public License v3.0 **???**
 
 ## Acknowledgments
 
