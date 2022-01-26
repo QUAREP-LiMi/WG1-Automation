@@ -1,13 +1,14 @@
-<img src="/Images/QUAREP_logo_stacked.svg" alt="QUAREP-LiMi Logo" width=80%>
+<img src="/Images/QUAREP_logo_stacked.svg" alt="QUAREP-LiMi Logo" width=20%>
 
 # Measurement Automation of Microscope Illumination Power and Stability Use Cases
 
 
-## Nikon Ti2
-Nikon Ti2 description and link to video.
+## Nikon Instruments
+- Nikon Eclipse Ti2 
+- Nikon Eclipse Ti2 CSU-W1 spinning disk
 
-## Nikon Ti2 CSU-W1 Spinning disk
-Description and link to video.
+## Zeiss
+- Zess LSM ???
 
 ## Authors
 
