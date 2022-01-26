@@ -12,7 +12,7 @@
 
 ## Authors
 
-* **Nasser Darwish, Mišo Mitkovski** 
+* **QUAREP-LiMi [Working Group 1 members](https://quarep.org/working-groups/wg-1-illumination-power/wg-1-members/)** 
 
 ## License
 
