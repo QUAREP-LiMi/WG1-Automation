@@ -23,7 +23,8 @@ YouTube link: https://www.youtube.com/watch?v=2dPq9gljJ-4
 This project is licensed under the GNU General Public License v3.0 **???**
 
 ## Disclaimer
-
+The files distributed here are provided as test examples that apply to specific systems and may require adaptation in order to work elsewhere. <br>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## Laser Safety
 -	The intense lasers, lamps, and other light sources used for microscopy are frequently eye safety hazards. Follow proper laser safety protocols for your equipment and situation.
 -	Measuring high-intensity light sources exposes the operator to potentially hazardous optical power levels. This procedure presents a potentially radiation hazard. Specific parameters of the radiation are determined by the product used. Please refer to the documentation provided by the manufacturer for additional warnings and PPE requirements (e.g. laser safety goggles). Consult with your local Laser Safety Officer or refer to your laboratory safety documentation for more information.
