@@ -25,3 +25,4 @@ This project is licensed under the GNU General Public License v3.0 **???**
 ## Disclaimer
 
 ## Laser Safety
+Before you carry out measurements, it is important to familiarize yourself with all local laser safety rules and requirements for eye and skin protection.
