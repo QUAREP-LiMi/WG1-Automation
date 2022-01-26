@@ -8,7 +8,7 @@
 - Nikon Eclipse Ti2 CSU-W1 spinning disk
 
 ## Zeiss
-- Zess LSM ???
+- Zeiss LSM ???
 
 ## Authors
 
