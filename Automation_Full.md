@@ -29,8 +29,10 @@ Multiple, laser-based excitation wavelengths are interleaved within a repeating 
   - to be capable of automatically storing the measured values in a file (e.g. *CSV*).
 ## Implementation Scheme
 The microscope automation environment controls and configures the light sources and the power meter device by means of a programming interface that assigns the appropriate parameters and synchronizes them. Configuration files provide the system-specific information needed and in the end the results are stored in a CSV file. The scheme below shows the role played by each component in this implementation.
-
-<img src="/Images/Automation_Full.png" alt="High-level implementation scheme" width=100%>
+<figure>
+    <img src="/Images/Automation_Full.png" alt="High-level implementation scheme" width=100%>
+    <figcaption>A high-level view of the automated measurement.</figcaption>
+ </figure>
 
 ### External Power Meter Control
 Ideally, the automation environment of the microscope control software establishes the communication with the external power meter.
