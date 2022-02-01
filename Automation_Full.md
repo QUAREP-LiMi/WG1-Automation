@@ -31,8 +31,11 @@ Multiple, laser-based excitation wavelengths are interleaved within a repeating 
 The microscope automation environment controls and configures the light sources and the power meter device by means of a programming interface that assigns the appropriate parameters and synchronizes them. Configuration files provide the system-specific information needed and in the end the results are stored in a CSV file. The scheme below shows the role played by each component in this implementation.
 <figure>
     <img src="/Images/Automation_Full.png" alt="High-level implementation scheme" width=100%>
-    <figcaption>A high-level view of the automated measurement.</figcaption>
- </figure>
+</figure>
+<p align="center">
+    Figure: <em>A high-level view of automated intensity measurement of a light source using a calibrated external power sensor.</em>
+</p>
+    
 
 ### External Power Meter Control
 Ideally, the automation environment of the microscope control software establishes the communication with the external power meter.
