@@ -4,11 +4,12 @@
 
 
 ## Nikon Instruments
-- [Nikon Eclipse Ti2](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Nikon-Ti2) Widefield (NIS Elements Ver. 5.0) + Lumencor Spectra III + Thorlabs PM100USB (Optical Power Monitor Ver. 3.1) 
-  - Above known to work with NIS Elements Ver. **4.x - 5.x???**
-- [Nikon Eclipse Ti2 CSU-W1 Spinning Disk](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Nikon-CSU_W1
-) (NIS Elements Ver. **5.x**) + Omicron LightHUB Ultra + Thorlabs PM100USB (Optical Power Monitor Ver. 3.1) 
-  - Above known to work with NIS Elements Ver. **4.x - 5.x???**
+|Microscope | Control Software  | Light Source |  Power Meter |
+|------------|--------------|--------------|----------------|
+|[Nikon Eclipse Ti2 Widefield](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Nikon-Ti2)| NIS Elements Ver. 5.0 | Lumencor Spectra III | Thorlabs PM100USB (Optical Power Monitor Ver. 3.1)|
+|[Nikon Eclipse Ti2 CSU-W1 Spinning Disk](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Nikon-CSU_W1)|NIS Elements **5.x** | Omicron LightHUB Ultra | Thorlabs PM100USB (Optical Power Monitor Ver. 3.1) |
+
+Above known to work with NIS Elements Ver. **4.x - 5.x???**
 
 ## Zeiss
 - [Zeiss LSM 800 & 900](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Zeiss-Zen-Blue
