@@ -30,7 +30,8 @@ Multiple, laser-based excitation wavelengths are interleaved within a repeating 
 ## Implementation Scheme
 The microscope automation environment controls and configures the light sources and the power meter device by means of a programming interface that assigns the appropriate parameters and synchronizes them. Configuration files provide the system-specific information needed and in the end the results are stored in a CSV file. The scheme below shows the role played by each component in this implementation.
 
-![High-level implementation scheme](https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Images/Automation_Full.png)
+<img src="/Images/Automation_Full.png" alt="High-level implementation scheme" width=100%>
+
 ### External Power Meter Control
 Ideally, the automation environment of the microscope control software establishes the communication with the external power meter.
 - Case 1: Direct access to the power meter API by means of the same computer language implemented within both, the microscope control software and the power meter. This is the case, for example, for Visitron microscopes and Thorlabs power meters, where the former 
