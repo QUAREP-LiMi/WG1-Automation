@@ -4,7 +4,7 @@ Light microscopy setups frequently rely on multiple excitation light sources. To
 The assessment protocols can be very time and resource consuming. For instance, the long-term assessment, conducted on a system containing 3 lasers would require at least 6 h to complete. As most systems contain more than 3 excitation light sources, some degree of time-saving automation of the above task is imperative.
 This protocol describes the automation of short- and long-term illumination power and stability measurement. The goal is to establish an unsupervised measurement scenario, where multiple lasers can be characterized within the span of a typical 4 h system reservation slot.
 ## The Measurement Protocols
-The implemented measurement protocols adhere to the guidelines established by the QUAREP-LiMi Working Group 1 **(link)**. The tools and materials provided here may change in accordance to future developments of the QUAREP-LiMi Working Group 1.
+The implemented measurement protocols adhere to the guidelines established by the [QUAREP-LiMi Working Group 1](https://quarep.org/working-groups/wg-1-illumination-power/). The tools and materials provided here may change in accordance to future developments of the QUAREP-LiMi Working Group 1.
 ### Fully automated, short-term stability measurements
 >1. The microscope control software activates the respective laser, sets its intensity level to 5 %, activates the Python script controlling the external power meter, to which it sends the wavelength and intensity (AOTF) information.
 >2.	The Python script sets the power meter to the laser wavelength and instructs it to stream power measurements every 1 s for 600 s into a CSV file (laser wavelength, respective intensity and a timestamp of each measurement).
