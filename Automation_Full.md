@@ -39,7 +39,7 @@ The microscope automation environment controls and configures the light sources 
 
 ### External Power Meter Control
 Ideally, the automation environment of the microscope control software establishes the communication with the external power meter.
-- Case 1: Direct access to the power meter API by means of the same computer language implemented within both, the microscope control software and the power meter. This is the case, for example, for Visitron microscopes and Thorlabs power meters, where the former 
+- Case 1: Direct access to the power meter API by means of the same computer language implemented within both, the microscope control software and the power meter. This is the case, for example, for Visitron microscopes and Thorlabs power meters, where the former implement a python interpreter and the latter provide control functions in python.
 - Case 2: An intermediate script is implemented to facilitate communication between microscope control software and power meter employing different computer languages. This approach is applicable in more cases and it will be covered below.
 ### Separate Configuration Files
 Even while considering the same vendor the microscope hardware can vary significantly, from the type of the system to the installed light sources or the chosen filters and their placement. A single program would require serious modifications from one microscope to another unless we can move these settings to independent files. Part of our aim is to provide some already-made examples that can serve as a starting point for the development of automation solutions, case by case.
