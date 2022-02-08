@@ -1,20 +1,3 @@
-Copyright 2022 Nasser Darwish Miranda
-
-@author: Nasser Darwish, IST Austria
-
-This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	
 This program allows automatic power measurements for Zeiss microscopes running Zen Blue
 
 This software follows this hierarchy: Zen macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
@@ -37,34 +20,25 @@ are created at the same system. These files should be stored in the "Configs" fo
 The measurementConfig.csv file contains the instructions needed to relove all the 
 dependencies. This can be customized if the files are saved in different locations.
 
-Authorship and rights
+...
 
-- The QUAREP-LPM.py macro, together with the original version of the documents and 
-configuration files were created By Nasser Darwish <nasser.darwish-miranda@ist.ac.at> 
-at IST Austria
+The automation script is covered by the 3-Clause BSD license. You can freely use, modify, 
+and share it. Only mentioning the origianl authors in a modified version requires prior 
+consent.
 
-- The TLPM.py and TLPM.dll files are provided by Tholabs GmbH <www.thorlabs.com> in the driver 
-package for their power meters. The "measurePowers.pyw" script was derived from an example 
-file, also distributed by Tholabs GmbH.
+The additional software necessary is provided and licensed by the corresponding vendors.
+To make use of it in other ways keep please review their terms.
 
-
-All rights for the files created by other authors belong to them. Please review their
-license terms and follow their instructions to get the up to date versions.
-
-Disclaimer
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
-THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
-IN THE SOFTWARE.
-
-
-
-
-
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+OF SUCH DAMAGE.
 
 
 
