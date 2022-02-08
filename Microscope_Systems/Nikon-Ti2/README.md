@@ -32,7 +32,7 @@ and share it. Only mentioning the origianl authors in a modified version require
 consent.
 
 The additional software necessary is provided and licensed by the corresponding vendors.
-To make use of it in other ways keep please review their terms.
+To make use of it please review and agree their terms.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
