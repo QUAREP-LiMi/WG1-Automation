@@ -1,20 +1,3 @@
-Copyright 2022 Nasser Darwish Miranda
-
-@author: Nasser Darwish, IST Austria
-
-This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version (TO BE DISCUSSED AT WG1 MEETING)
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	
 This program allows automatic power measurements for: 
 - Nikon Eclipse Ti2 CSU-W1 Spinning Disk (NIS Elements Ver. 5.x) + Omicron LightHUB Ultra + Thorlabs PM100USB (Optical Power Monitor Ver. 3.1) 
 
@@ -48,7 +31,7 @@ also distributed by Tholabs GmbH.
 All rights for the files created by other authors belong to them. Please review their
 license terms and follow their instructions to get the up to date versions.
 
-Disclaimer (TO BE DISCUSSED AT THE WG1 USER GROUP MEETING)
+Disclaimer
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
 OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
