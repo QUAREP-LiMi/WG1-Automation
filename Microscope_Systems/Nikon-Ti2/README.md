@@ -1,4 +1,4 @@
-This program allows automatic power measurements for Nikon microscopes running NIS Elements (<b> which version?</b> )
+This program allows automatic power measurements for Nikon microscopes running NIS Elements (tested with ver. 5.30 )
 
 This software follows this hierarchy: Nikon macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
 
