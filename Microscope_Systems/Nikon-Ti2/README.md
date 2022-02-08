@@ -1,3 +1,4 @@
+# Introduction
 This program allows automatic power measurements for Nikon microscopes running NIS Elements (tested with ver. 5.30 )
 
 This software follows this hierarchy: Nikon macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
@@ -27,6 +28,8 @@ the programs before trying them. In particular, for testing purposes we strongly
 check the code for setting very low illumination powers, limiting the number of loops and 
 shortening times while the light sources are on.
 
+# License
+
 The automation script is covered by the 3-Clause BSD license. You can freely use, modify, 
 and share it. Only mentioning the origianl authors in a modified version requires prior 
 consent.
@@ -34,6 +37,7 @@ consent.
 The additional software necessary is provided and licensed by the corresponding vendors.
 To make use of it please review and agree their terms.
 
+# Disclaimer
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
