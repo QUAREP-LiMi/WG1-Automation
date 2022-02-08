@@ -1,5 +1,5 @@
 # Introduction
-This program was tested successfully a specific microscope. We provide it in the hope that it 
+This program was tested successfully in a specific microscope. We provide it in the hope that it 
 is helpful, but we cannot provide support or warranty of any kind. Differences between similar 
 microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations 
 needed from one to another require the understanding of the code. Despite unlikely, damage to 
