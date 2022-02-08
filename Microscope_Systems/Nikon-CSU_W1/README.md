@@ -1,10 +1,20 @@
+# Introduction
+This program was tested successfully a specific microscope. We provide it in the hope that it 
+is helpful, but we cannot provide support or warranty of any kind. Differences between similar 
+microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations 
+needed from one to another require the understanding of the code. Despite unlikely, damage to 
+the equipment caused by wrong edits or by unforeseen circumstances is still possible. Proceed 
+at your own risk, following the applicable safety regulations and keeping sure to understand 
+the programs before trying them. In particular, for testing purposes we strongly advice to 
+check the code for setting very low illumination powers, limiting the number of loops and 
+shortening times while the light sources are on.
+
+# Installation
 This program allows automatic power measurements for: 
 - Nikon Eclipse Ti2 CSU-W1 Spinning Disk (tested with NIS Elements Ver. 5.30) + Omicron LightHUB Ultra + Thorlabs PM100USB (Optical Power Monitor Ver. 3.1) 
 
-
 The underlying hierarchy is: 
 - Nikon macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
-
 
 The Nikon macro runs under NIS Elements. To make it available:
 
@@ -18,18 +28,7 @@ power meter device.
 Currently, the configurations cannot be loaded from separate files and the .mac script 
 still has to be edited per system. 
 
-...
-
-This program was tested successfully a specific microscope. We provide it in the hope that it 
-is helpful, but we cannot provide support or warranty of any kind. Differences between similar 
-microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations 
-needed from one to another require the understanding of the code. Despite unlikely, damage to 
-the equipment caused by wrong edits or by unforeseen circumstances is still possible. Proceed 
-at your own risk, following the applicable safety regulations and keeping sure to understand 
-the programs before trying them. In particular, for testing purposes we strongly advice to 
-check the code for setting very low illumination powers, limiting the number of loops and 
-shortening times while the light sources are on.
-
+# License
 The automation script is covered by the 3-Clause BSD license. You can freely use, modify, 
 and share it. Only mentioning the origianl authors in a modified version requires prior 
 consent.
@@ -37,6 +36,7 @@ consent.
 The additional software necessary is provided and licensed by the corresponding vendors.
 To make use of it please review and agree their terms.
 
+# Disclaimer
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
 WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
