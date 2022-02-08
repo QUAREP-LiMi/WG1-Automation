@@ -2,6 +2,7 @@
 
 # Measurement Automation Use Cases
 
+The examples below run successfully in specific microscopes. We provide them in the hope that they are helpful, but we cannot provide support or warranty of any kind. Differences between similar microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations needed from one to another require the understanding of the code. Despite unlikely, damage to the equipment caused by wrong edits or by unforeseen circumstances is still possible. Proceed at your own risk, following the applicable safety regulations and keeping sure to understand the programs before trying them. In particular, for testing purposes we strongly advice to check the code for setting very low laser powers, limiting the number of loops and shortening times while the lasers are on.
 
 ## Nikon Instruments
 |Microscope | Control Software  | Light Source |  Power Meter |
@@ -20,7 +21,7 @@ Above known to work with NIS Elements Ver. 5.30
 * **QUAREP-LiMi [Working Group 1 members](https://quarep.org/working-groups/wg-1-illumination-power/wg-1-members/)** 
 
 ## License
-GNU General Public License v3.0 **???**
+Please review the terms for each case.
 
 ## Acknowledgments
 * <a href="https://quarep.org/">QUAREP-LiMi</a>
