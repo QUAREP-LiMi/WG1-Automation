@@ -22,6 +22,16 @@ dependencies. This can be customized if the files are saved in different locatio
 
 ...
 
+This program was tested successfully a specific microscope. We provide it in the hope that it 
+is helpful, but we cannot provide support or warranty of any kind. Differences between similar 
+microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations 
+needed from one to another require the understanding of the code. Despite unlikely, damage to 
+the equipment caused by wrong edits or by unforeseen circumstances is still possible. Proceed 
+at your own risk, following the applicable safety regulations and keeping sure to understand 
+the programs before trying them. In particular, for testing purposes we strongly advice to 
+check the code for setting very low illumination powers, limiting the number of loops and 
+shortening times while the light sources are on.
+
 The automation script is covered by the 3-Clause BSD license. You can freely use, modify, 
 and share it. Only mentioning the origianl authors in a modified version requires prior 
 consent.
