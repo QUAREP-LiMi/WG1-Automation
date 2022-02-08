@@ -15,29 +15,25 @@ power meter device.
 Currently the configurations cannot be loaded from separate files and the .mac script 
 still has to be edited per system. 
 
+...
 
-Authorship and rights
+The automation script is covered by the 3-Clause BSD license. You can freely use, modify, 
+and share it. Only mentioning the origianl authors in a modified version requires prior 
+consent.
 
-- The LPM-loop.mac macro, together with the original version of these documents was created by 
-Nasser Darwish <nasser.darwish-miranda@ist.ac.at> at IST Austria.
+The additional software necessary is provided and licensed by the corresponding vendors.
+To make use of it in other ways keep please review their terms.
 
- - The TLPM.py and TLPM.dll files are provided by Tholabs GmbH <www.thorlabs.com> in the driver package for 
- their power meters. The "measurePowers.pyw" script was derived from an example file, also distributed by 
- Tholabs GmbH.
-
-All rights for the files created by other authors belong to them. Please review their
-license terms and follow their instructions to get the up to date versions.
-
-Disclaimer
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
-THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
-IN THE SOFTWARE.
-
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+OF SUCH DAMAGE.
 
 
 https://user-images.githubusercontent.com/98343796/151208904-a98e733d-c1d9-4329-9357-12c91b90e7d5.mp4
