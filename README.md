@@ -24,7 +24,7 @@ YouTube link: https://www.youtube.com/watch?v=2dPq9gljJ-4
 
 * <a href="https://quarep.org/">QUAREP-LiMi</a>
 ## License
-This project is licensed under the GNU General Public License v3.0 **???**
+This repository is licensed under the terms of the MIT license. The examples available for download might be licensed differently as long as they also comply the MIT terms.
 
 ## Disclaimer
 The files distributed here are provided as test examples that apply to specific systems and may require adaptation in order to work elsewhere. <br>
