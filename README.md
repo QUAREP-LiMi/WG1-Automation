@@ -27,7 +27,7 @@ YouTube link: https://www.youtube.com/watch?v=2dPq9gljJ-4
 This repository is licensed under the terms of the MIT license. The examples available for download might be licensed differently as long as they also comply with the MIT license terms.
 
 ## Disclaimer
-The contributions distributed here are provided as test examples that were tested in specific systems, requiring adaptation in order to work elsewhere. These contributions are covered under open source licenses and without any warranties. Please review the disclimer terms in the corresponding licenses before using them.
+The contributions distributed here are provided as test examples that were tested in specific systems, requiring adaptation in order to work elsewhere. These contributions are covered under open source licenses and without any warranties. Please review the disclaimer terms in the corresponding licenses before using them.
 
 ## Laser Safety
 -	The intense lasers, lamps, and other light sources used for microscopy are frequently eye safety hazards. Follow proper laser safety protocols for your equipment and situation.
