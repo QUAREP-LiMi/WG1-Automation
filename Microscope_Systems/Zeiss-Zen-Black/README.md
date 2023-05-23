@@ -23,12 +23,12 @@ to make the macro available. If you do not have Microsoft Office installed on yo
 The Zen macro connects to a python interpreter (miniconda suggested) and invokes the 
 measurePowers.pyw script. You can download miniconda under:
 
-	https://docs.conda.io/en/latest/miniconda.html
+https://docs.conda.io/en/latest/miniconda.html
 
 Finally, the TLPM files from Thorlabs bring the low level access to the 
 power meter device. You can download the Thorlabs software under
 
-	https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM
+https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM
  
 The Zen software needs to load configuration files to setup the light sources. In this
 way the macro can be adapted to different microscopes, as long as the configuration files
@@ -78,7 +78,7 @@ in a text editor. Change the “scriptPath” in line 3 to the path where you st
 # Create an experiment in Zeiss Zen Black
 Create an experiment in the ZEN Black software according to the QUAREP Power Measurement Protocol:
 
-	https://www.protocols.io/view/illumination-power-stability-and-linearity-measure-5jyl853ndl2w/v2
+https://www.protocols.io/view/illumination-power-stability-and-linearity-measure-5jyl853ndl2w/v2
 
 No laser source must be chosen. Note that depending on the software version a continuous measurement mode is not possible if point scan is selected. Therefore a “Time Series” with maximum number of cycles has to be selected. (It has not been tested yet if this is long enough for a “Long Measurement” of 2 hours). Save the experiment under the same name as the “expName” in the “measurementConfig.csv” file.
 
