@@ -1,0 +1,9 @@
+Varname,value
+pythonPath,C:\ProgramData\Miniconda3\python.exe
+scriptPath,A:\Data\af1097\Thorlabs\QUAREP\pythonScripts\measurePowers.pyw
+dataSavePath,A:\Data\af1097\Thorlabs\QUAREP\output\
+dataSavePrefix,
+dataSaveExt,.txt
+expName,power-measurement-405nm
+expPower,5,20,80,100
+expLocation,Life Imaging Center
