@@ -18,7 +18,7 @@ YouTube link: https://www.youtube.com/watch?v=2dPq9gljJ-4
 
 ## Authors
 (alphabetical order)
-* Nasser Darwish, Nathalie Gaudreault, Laurent Gelman, Aleksandar Mitkovski, Mišo Mitkovski, Kees van der Oord and **QUAREP-LiMi [Working Group 1 members](https://quarep.org/working-groups/wg-1-illumination-power/wg-1-members/)** 
+* Nasser Darwish, Arne Fallisch, Nathalie Gaudreault, Laurent Gelman, Aleksandar Mitkovski, Mišo Mitkovski, Kees van der Oord and **QUAREP-LiMi [Working Group 1 members](https://quarep.org/working-groups/wg-1-illumination-power/wg-1-members/)** 
 
 ## Acknowledgments
 
