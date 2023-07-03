@@ -25,7 +25,8 @@ measurePowers.pyw script. You can download miniconda under:
 
 https://docs.conda.io/en/latest/miniconda.html
 
-Finally, the TLPM files from Thorlabs bring the low level access to the 
+# Thorlabs power meter
+The TLPM files from Thorlabs bring the low level access to the 
 power meter device. You can download the Thorlabs software under
 
 https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM
@@ -37,14 +38,20 @@ are created at the same system. These files should be stored in the "Configs" fo
 The measurementConfig.csv file contains the instructions needed to relove all the 
 dependencies. This can be customized if the files are saved in different locations.
 
+# Ophir power meter
+To able to use the Ophir power meter you need to download the latest version of StarLabs
+
+https://www.ophiropt.com/laser--measurement/software/starlab-for-usb
+
 # Configuration
 The following files are needed for the Macro:
 
 	a. The VBA Macro named “Power-Measurement.lvb” in the main folder (or “Power-Measurement-without-Office.lvb”)
  	b. The python measurement script named “measurePowers.pyw” in folder “PythonScripts”
 	c. The configuration file “measurementConfig.csv” in the main folder
- 	d. The python Thorlabs library name “TLPM.py”
- 	e. The Thorlabs dll named “TLPM_64.dll” or “TLPM_32.dll”
+ 	d. The python Thorlabs library name “TLPM.py” (only for Thorlab power meters)
+ 	e. The Thorlabs dll named “TLPM_64.dll” or “TLPM_32.dll” (only for Thorlab power meters)
+  	f. pywin32 package for python (miniconda, only for Ophir power meters)
 
 The files d and e are not part of the Macro download. The Thorlabs python library can be found under: 
 	
@@ -74,6 +81,11 @@ Open the file
 	 “measurementConfig.csv”
 
 in a text editor. Change the “scriptPath” in line 3 to the path where you stored the “measurePowers.pyw” script. Change the “dataSavePath” to the path where you want to store your measurement data. Change the “expName” to the corresponding name of the experiment in ZEN Black. Change the “expLocation” to the name of your facility.
+
+# Install the pywin32 package using miniconda
+Open a anaconda command prompt and type
+
+	conda install pywin32
 
 # Create an experiment in Zeiss Zen Black
 Create an experiment in the ZEN Black software according to the QUAREP Power Measurement Protocol:
