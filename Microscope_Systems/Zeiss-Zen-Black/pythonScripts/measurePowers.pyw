@@ -8,6 +8,7 @@ import os
 
 #import win32gui
 import win32com.client
+import time
 import traceback
 
 print('Argument List: ', str(sys.argv))
@@ -20,7 +21,7 @@ if len(sys.argv) > 1:
 # second argument is the power level
 if len(sys.argv) > 2:
     # print(sys.argv[2])
-    power_level = int(sys.argv[2])
+    power_level = float(sys.argv[2])
 
 # third argument is the output file
 fout = 0
@@ -41,11 +42,9 @@ if len(sys.argv) > 5:
 try:
     # Open connection to Ophir power meter
     OphirCOM = win32com.client.Dispatch("OphirLMMeasurement.CoLMMeasurement")
-
     # Stop & Close all devices
     OphirCOM.StopAllStreams()
     OphirCOM.CloseAll()
-
     # Scan for connected Devices
     DeviceList = OphirCOM.ScanUSB()
     if len(DeviceList) != 0:
@@ -92,9 +91,10 @@ try:
                     data = OphirCOM.GetData(DeviceHandle, 0)
                     time.sleep(0.2)  # wait a little for data
                     if len(data[0]) > 0:  # if any data available, print the first one from the batch
-                        # print('Reading = {0}, TimeStamp = {1}, Status = {2}'.format(data[0][0], data[1][0], data[2][0]))
-                        total_power += (data[0][0])
-                    average_count += 1
+                        if data[0][0] != 0.0:
+                            print('Reading = {0}, TimeStamp = {1}, Status = {2}'.format(data[0][0], data[1][0], data[2][0]))
+                            total_power += (data[0][0])
+                            average_count += 1
 
                 # calculate arithmetic mean of power and temperature
                 total_power /= average_count
@@ -108,21 +108,10 @@ try:
 
             # close the file
             if fout:
-                print('Output file closed!')
                 fout.close()
-
-            # Stop & Close all devices
-            OphirCOM.StopAllStreams()
-            OphirCOM.CloseAll()
-
-            # Release the object
-            OphirCOM = None
-            print('Ophir power meter disconnected!')
         else:
             print('Sensor is not connected to Ophir Juno!')
 
-            # Release the object
-            OphirCOM = None
     else:
         tlPM = TLPM()
         deviceCount = c_uint32()
@@ -136,7 +125,9 @@ try:
             resourceName = create_string_buffer(1024)
             tlPM.getRsrcName(c_int(0), resourceName)
             # print(c_char_p(resourceName.raw).value)
+
             tlPM.open(resourceName, c_bool(True), c_bool(True))
+
             thermometer = False;
             tlPM.setWavelength(c_double(float(wavelength)));
             time.sleep(0.1);  # Without this delay the first number is consistently higher than the rest
@@ -179,10 +170,7 @@ try:
                 start_average = datetime.now()
                 while (datetime.now() < average_until):
                     power = c_double();
-                    try:
-                        tlPM.measPower(byref(power));
-                    except NameError as err:
-                        tlPM.measPower(byref(power));
+                    tlPM.measPower(byref(power));
                     total_power += power.value;
                     if thermometer:
                         tlPM.measExtNtcTemperature(byref(temperature));
@@ -208,19 +196,19 @@ try:
                     if fout:
                         print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
                               total_power, end='', sep='\t', file=fout)
-            if fout:
-                print('\nOutput file closed!')
-                fout.close
-            print('Thorlabs power meter disconnected!')
-            tlPM.reset()
             tlPM.close()
             tlPM = None
         else:
-            print('No Ophir or Thorlabs power meter connected!')
+            print('No Ophir or Thorlabs powermeter connected')
 except OSError as err:
     print("OS error: {0}".format(err))
 except:
     traceback.print_exc()
 
+# Stop & Close all devices
+OphirCOM.StopAllStreams()
+OphirCOM.CloseAll()
 
+# Release the object
+OphirCOM = None
 
