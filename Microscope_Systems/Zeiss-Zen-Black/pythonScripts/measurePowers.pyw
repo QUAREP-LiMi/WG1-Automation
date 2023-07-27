@@ -33,10 +33,14 @@ if len(sys.argv) > 3:
 duration = 5 * 60  # in seconds, default
 if len(sys.argv) > 4:
     # print(sys.argv[4])
-    duration = int(sys.argv[4])
+    duration = int(sys.argv[4]) 
 if len(sys.argv) > 5:
     # print(sys.argv[5])
     avgTime = int(sys.argv[5])
+if len(sys.argv) > 6:
+    # print(sys.argv[6])
+    integration = int(sys.argv[6])
+    
 
 # connect to power meter and perform measurement
 try:
@@ -74,38 +78,44 @@ try:
             # start measuring
             OphirCOM.StartStream(DeviceHandle, 0)
 
-            # Without this delay the first number is consistently higher than the rest
-            time.sleep(1.5)
-
-            # set starttime and measurement duration
+            # Without this delay the first values are lower than the rest or lead to no counting 
+            time.sleep(5)
+            
+            # set starttime and measurement duration       
             start = datetime.now()
+            average_until = start 
+            average_count = 0
             measure_until = start + timedelta(seconds=duration)
-            average_until = start
+            average_until = start + timedelta(seconds=avgTime)
+            average_start = average_until - timedelta(seconds=float(integration))
             while datetime.now() < measure_until:
-                average_until += timedelta(seconds=avgTime)
-                average_count = 0
-                total_power = 0
-                start_average = datetime.now()
-
-                while (datetime.now() < average_until):
-                    data = OphirCOM.GetData(DeviceHandle, 0)
-                    time.sleep(0.2)  # wait a little for data
-                    if len(data[0]) > 0:  # if any data available, print the first one from the batch
-                        if data[0][0] != 0.0:
-                            print('Reading = {0}, TimeStamp = {1}, Status = {2}'.format(data[0][0], data[1][0], data[2][0]))
+                if datetime.now() >= average_start:
+                    average_count = 0
+                    total_power = 0
+                    start_average = datetime.now()
+                    #print('start_average = {0}, average_until = {1}\n'.format(start_average,average_until))
+                    while (datetime.now() < average_until):
+                        data = OphirCOM.GetData(DeviceHandle, 0)
+                        #time.sleep(0.2)  # wait a little for data
+                        if len(data[0]) > 0:  # if any data available, print the first one from the batch
+                            #print('Reading = {0}, TimeStamp = {1}, Status = {2}, Count = {3}'.format(data[0][0], data[1][0], data[2][0], average_count+1))
                             total_power += (data[0][0])
                             average_count += 1
 
-                # calculate arithmetic mean of power and temperature
-                total_power /= average_count
-                ts = (start_average - start).total_seconds()
+                    # calculate arithmetic mean of power and temperature
+                    if average_count > 0:
+                        total_power /= average_count
+                        #ts = (start_average - start).total_seconds()
 
-                print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level, total_power,
-                      end='', sep='\t')
-                if fout:
-                    print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
-                          total_power, end='', sep='\t', file=fout)
-
+                        print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level, total_power, average_count,  
+                              end='', sep='\t')
+                        if fout:
+                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
+                                  total_power, end='', sep='\t', file=fout)
+                    else:
+                        print('\naverage_count = 0')
+                    average_until += timedelta(seconds=avgTime)
+                    average_start = average_until - timedelta(seconds=float(integration))
             # close the file
             if fout:
                 fout.close()
@@ -160,42 +170,48 @@ try:
             # set starttime and measurement duration
             start = datetime.now();
             measure_until = start + timedelta(seconds=float(duration))
-            average_until = start
+            average_until = start + timedelta(seconds=float(avgTime))
+            average_until = start + timedelta(seconds=float(avgTime))
+            average_start = average_until - timedelta(seconds=float(integration))
             while datetime.now() <= measure_until:
-                average_until += timedelta(seconds=float(avgTime));
-                average_count = 0;
-                total_power = 0;
-                total_temperature = 0;
+                #print("\n" + str(datetime.now()) + " > " + str(average_start) + " < " + str(average_until) + "\n")
+                if datetime.now() >= average_start:
+                    average_count = 0;
+                    total_power = 0;
+                    total_temperature = 0;
 
-                start_average = datetime.now()
-                while (datetime.now() < average_until):
-                    power = c_double();
-                    tlPM.measPower(byref(power));
-                    total_power += power.value;
+                    start_average = datetime.now()
+                    while (datetime.now() < average_until):
+                        power = c_double();
+                        tlPM.measPower(byref(power));
+                        total_power += power.value;
+                        #print('Reading = {0}, Timestamp = {1}, Count = {2}'.format(power.value, str(datetime.now()), average_count+1))
+                        if thermometer:
+                            tlPM.measExtNtcTemperature(byref(temperature));
+                            total_temperature += temperature.value;
+                        average_count += 1;
+
+                    # calculate arithmetic mean of power and temperature if applicable
+                    total_power /= average_count;
                     if thermometer:
-                        tlPM.measExtNtcTemperature(byref(temperature));
-                        total_temperature += temperature.value;
-                    average_count += 1;
+                        total_temperature /= average_count;
+                    ts = (start_average - start).total_seconds();
 
-                # calculate arithmetic mean of power and temperature if applicable
-                total_power /= average_count;
-                if thermometer:
-                    total_temperature /= average_count;
-                ts = (start_average - start).total_seconds();
-
-                # write date into output file
-                if thermometer:
-                    print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
-                          total_power, total_temperature, end='', sep='\t')
-                    if fout:
+                    # write date into output file
+                    if thermometer:
                         print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
-                              total_power, total_temperature, end='', sep='\t', file=fout)
-                else:
-                    print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
-                          total_power, end='', sep='\t')
-                    if fout:
+                              total_power, total_temperature, end='', sep='\t')
+                        if fout:
+                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
+                                  total_power, total_temperature, end='', sep='\t', file=fout)
+                    else:
                         print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
-                              total_power, end='', sep='\t', file=fout)
+                              total_power, end='', sep='\t')
+                        if fout:
+                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
+                                  total_power, end='', sep='\t', file=fout)
+                    average_until += timedelta(seconds=float(avgTime));
+                    average_start = average_until - timedelta(seconds=float(integration))
             tlPM.close()
             tlPM = None
         else:
