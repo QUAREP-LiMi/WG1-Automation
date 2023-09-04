@@ -1,7 +1,7 @@
 Varname,value
 pythonPath,C:\ProgramData\Miniconda3\python.exe
-scriptPath,A:\Data\af1097\Thorlabs\QUAREP\pythonScripts\measurePowers.pyw
-dataSavePath,A:\Data\af1097\Thorlabs\QUAREP\output\
+scriptPath,C:\Users\username\QUAREP\pythonScripts\measurePowers.pyw
+dataSavePath,C:\Users\username\QUAREP\output\
 dataSavePrefix,
 dataSaveExt,.txt
 expName,power-measurement-405nm
