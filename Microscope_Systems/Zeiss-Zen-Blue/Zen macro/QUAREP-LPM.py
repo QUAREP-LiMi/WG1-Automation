@@ -584,7 +584,7 @@ def main():
     now = datetime.now()
     dateTimeStr = now.strftime("%d%m%Y-%H%M")
     
-    measconfigPath = 'A:\\data\\af1097\\Thorlabs\\QUAREP\\'
+    measconfigPath = 'C:\\QUAREP\\'
     measConfigFile = measconfigPath+'measurementConfig.csv'
     MTBpath = 'C:\\ProgramData\\Carl Zeiss\\MTB2011\\'
     
