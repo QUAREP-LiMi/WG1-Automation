@@ -44,7 +44,7 @@ This software consists of the following files, placed in three different folders
 	   3.2 "488" will be read from the file name and used later to configure the power meter
 	   3.3 If "LPM488.czexp" uses the 488nm laser, the measurement will correctly
 
-   Export the configurations into C:\IOF-Macros\LPM\Configs\.
+   Export the configurations into C:\QUAREP-Macros\LPM\Configs\.
 
    The QUAREP-LPM macro loads specific experiment configurations (*.czexp files) for measuring each illumination source under the desired conditions. The power tests involve the load and execution of these experiments, which causes the detectors to be on during the process. If the spectral windows are not defined to avoid it, in confocal microscopes there is a risk of illuminating -and damaging- the detectors with light reflected on the surface of the power meter device.
 
