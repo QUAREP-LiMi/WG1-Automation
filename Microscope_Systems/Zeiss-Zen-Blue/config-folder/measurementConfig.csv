@@ -2,7 +2,7 @@ Varname,value
 dataSavePath,D:\Facility\QUAREP\output\
 dataSavePrefix,output
 dataSaveExt,.csv
-expPath,C:\IOF-scripts\QUAREP\Config\
+expPath,C:\QUAREP\Config\
 expPrefix,LPM
 expName,test
 expWavelength,405,488,561,640
