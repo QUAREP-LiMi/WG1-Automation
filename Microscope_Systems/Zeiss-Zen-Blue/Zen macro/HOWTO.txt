@@ -1,4 +1,6 @@
-Copy the python file (currntly called QUAREP-LPM.py) into:
+Copy these files python and dll (currently called QUAREP-LPM.py and TLPM.py) into:
+
+Add TLPM_64.dll from The Thorlabs driver package.
 
 C:\Users\desiredUsser\Documents\Carl Zeiss\ZEN\Documents\Macros
 
