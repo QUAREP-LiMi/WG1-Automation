@@ -1,3 +1,5 @@
+This is an example file. Please adjust its contents according to your system.
+
 The path to this file is hard coded into the QUAREP-LPM.py, currently in lines 587 and 568:
 
 >>       measconfigPath = 'C:\\QUAREP\\'
