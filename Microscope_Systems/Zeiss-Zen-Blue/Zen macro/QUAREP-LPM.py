@@ -584,7 +584,21 @@ def main():
     now = datetime.now()
     dateTimeStr = now.strftime("%d%m%Y-%H%M")
     
-    measconfigPath = 'C:\\QUAREP\\'
+    measConfig = 'measurementConfig.csv'
+    measconfigPathUser = os.path.expanduser('~')+"\\Documents\\Carl Zeiss\\ZEN\\Documents\\Macros\\"
+    measconfigPathGlobal = "C:\\Users\\Public\\Documents\\Carl Zeiss\\ZEN\\Documents\\Macros\\"
+    
+    if (os.path.exists(measconfigPathUser+measConfig)):
+        measconfigPath = measconfigPathUser
+    elif (os.path.exists(measconfigPathGlobal+measConfig)):
+        measconfigPath = measconfigPathGlobal
+    else:
+        print("Error: No config file")
+        return
+    
+    
+    print(measconfigPath)
+    
     measConfigFile = measconfigPath+'measurementConfig.csv'
     MTBpath = 'C:\\ProgramData\\Carl Zeiss\\MTB2011\\'
     
