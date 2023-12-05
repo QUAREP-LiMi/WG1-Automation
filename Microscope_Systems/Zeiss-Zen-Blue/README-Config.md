@@ -1,3 +1,5 @@
+The measurementConfig.csv file has to be saved alongside the macro (Python) files
+
 - The csv file tells the scripts where files are and how to run the experiments. 
 - No spaces allowed after the commas
 
