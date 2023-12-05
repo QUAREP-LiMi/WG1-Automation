@@ -1,7 +1,9 @@
-Copy these files python and dll (currently called QUAREP-LPM.py and TLPM.py) into:
+The files in this folder  - Python, dll and csv - should be saved in the macro folder of Zen blue:
 
-Add TLPM_64.dll from The Thorlabs driver package.
-
-C:\Users\desiredUsser\Documents\Carl Zeiss\ZEN\Documents\Macros
+>>      C:\Users\desiredUsser\Documents\Carl Zeiss\ZEN\Documents\Macros
 
 If desiredUsser is "all users" the macro will be available for all windows users
+
+The DLL file (TLPM_64.dll for windows 64 bit) can be obtained from The Thorlabs driver package: 
+
+>>      https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM
