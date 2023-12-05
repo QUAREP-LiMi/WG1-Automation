@@ -23,16 +23,16 @@ This software consists of the following files, placed in three different folders
    * Macros and driver: 
       Zen Blue recognises python macros installed under "my documents", in "Carl Zeiss\Zen\Macros\". Use the "Public documents" (i.e. "C:\Users\Public\Public Documents\Carl Zeiss\Zen\Macros\") to make the macro available for all windows users):
          
-      - QUAREP-LPM-vXY.py is the main program to execute. Currently you can use version 22 or above.
+      - QUAREP-LPM-vXY.py is the main program to execute. Currently you can use version 24 or above.
       - The interface file TLPM.py is a slightly modified version of the original file provided by Thorlabs(R).
       The TLPM files are provided by Thorlabs as a part of their TLPM control suite [Thorlabs link](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM).      
       - TLPM.dll is the driver of the Thorlabs power meter device.
 
    * Configuration folder
-      - The configuration file tells the software all the necessary information to run correctly. Save it as C:\QUAREP-Macros\LPM\measurementConfig.csv and make sure that all information in it is consistent with your system.
+      - The configuration file (measurementConfig.csv) tells the software all the necessary information to run correctly. Save it alongside with the macros and make sure that all information in it is consistent with your system.
 
    * Experiment files
-   The optical configurations have to be created at the system by a qualified operator. Here we provide only example files. Once created, they will look like C:\QUAREP-Macros\LPM\Configs\LPM405.czexp, LPM488.czexp ...etc.
+   The optical configurations have to be created at the system by a qualified operator. Here we provide only example files. Once created, they will look like C:\QUAREP\Configs\LPM405.czexp, LPM488.czexp ...etc.
          
    - Make your own configurations at the specific microscope (not another of the same type) using Zen Blue, 
    - use only configurations created at the same system
