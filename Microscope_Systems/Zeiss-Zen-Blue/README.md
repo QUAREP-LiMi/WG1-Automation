@@ -29,10 +29,10 @@ This software consists of the following files, placed in three different folders
       - TLPM.dll is the driver of the Thorlabs power meter device.
 
    * Configuration folder
-      - The configuration file tells the software all the necessary information to run correctly. Save it as C:\IOF-Macros\LPM\measurementConfig.csv and make sure that all information in it is consistent with your system.
+      - The configuration file tells the software all the necessary information to run correctly. Save it as C:\QUAREP-Macros\LPM\measurementConfig.csv and make sure that all information in it is consistent with your system.
 
    * Experiment files
-   The optical configurations have to be created at the system by a qualified operator. Here we provide only example files. Once created, they will look like C:\IOF-Macros\LPM\Configs\LPM405.czexp, LPM488.czexp ...etc.
+   The optical configurations have to be created at the system by a qualified operator. Here we provide only example files. Once created, they will look like C:\QUAREP-Macros\LPM\Configs\LPM405.czexp, LPM488.czexp ...etc.
          
    - Make your own configurations at the specific microscope (not another of the same type) using Zen Blue, 
    - use only configurations created at the same system
