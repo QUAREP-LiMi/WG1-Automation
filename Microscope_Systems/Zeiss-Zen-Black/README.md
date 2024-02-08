@@ -59,7 +59,7 @@ The following files are needed for the Macro:
  	e. The Thorlabs dll named “TLPMX_64.dll” or “TLPMX_32.dll” (only for Thorlab power meters)
   	f. pywin32 package for python (miniconda, only for Ophir power meters)
 
-The files d and e are not part of the Macro download. The Thorlabs python library (d) can be found under: 
+The files d, e and f are not part of the Macro download. The Thorlabs python library (d) can be found under: 
 	
 	C:\Program Files (x86)\IVI Foundation\VISA\WinNT\TLPMX\Examples\Python
 
