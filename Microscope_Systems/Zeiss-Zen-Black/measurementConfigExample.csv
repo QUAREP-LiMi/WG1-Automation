@@ -1,0 +1,28 @@
+Varname,value
+pythonPath,C:\ProgramData\Miniconda3\python.exe
+scriptPath,A:\Data\af1097\QUAREP\WG 1\Thorlabs\pythonScripts\measurePowers.pyw
+dataSavePath,A:\Data\af1097\QUAREP\WG 1\Thorlabs\output\
+dataSavePrefix,
+dataSaveExt,.txt
+expName,PowerMeasurement
+expWavelength,405,458,488,514,561,633,760,1040
+expChosenWavelength,1,2,3,4,5,6
+expPower,5,20,80,100
+expChosenPower,1,2,3,4
+expBeamSplitterVis,MBS 458,MBS 458/514,MBS 458/561,None,MBS 488,MBS 488/561,None,MBS 488/561/633,MBS T80/R20,Plate
+expBeamSplitterInVis,Plate,Mirror,MBS -405,MBS -445,MBS 690+,MBS 760++,MBS -405(UV)/760++,MBS -445/760+,MBS T80/R20,None
+expChosenBeamSplitterVis,3,0,4,1,2,7,6,6
+expChosenBeamSplitterInVis,2,9,9,9,9,9,9,9
+expChosenMeasurement,True,True,True
+expShortInterval,1
+expShortDuration,300
+expShortIntegration,1
+expLongInterval,30
+expLongDuration,7200
+expLongIntegration,1
+expLinearStep,10
+expLinearDecades,4
+expLinearTime,3
+expLinearIntegration,3
+expLocation,Life Imaging Center
+expTemperatureSensor,True

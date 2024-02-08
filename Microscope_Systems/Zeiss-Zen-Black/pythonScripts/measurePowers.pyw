@@ -1,7 +1,8 @@
-from ctypes import cdll, c_long, c_ulong, c_uint32, byref, create_string_buffer, c_bool, c_char_p, c_int, c_int16, \
+from ctypes import cdll, c_long, c_ulong, c_uint16, c_uint32, byref, create_string_buffer, c_bool, c_char_p, c_int, c_int16, \
     c_double, sizeof, c_voidp
 from datetime import datetime, timedelta
 from TLPM import TLPM
+from TLPMX import TLPMX
 import time
 import sys
 import os
@@ -29,18 +30,31 @@ if len(sys.argv) > 3:
     # print(os.stat(sys.argv[3]).st_size)
     fout = open(sys.argv[3], "a")
 
-# fourth argument is the duration and fifth argument is the measurement interval
+# fourth argument is the duration
 duration = 5 * 60  # in seconds, default
 if len(sys.argv) > 4:
     # print(sys.argv[4])
     duration = int(sys.argv[4]) 
+
+# fifth argument is the measurement interval
 if len(sys.argv) > 5:
     # print(sys.argv[5])
     avgTime = int(sys.argv[5])
+
+# sixth argument is the integration time
 if len(sys.argv) > 6:
     # print(sys.argv[6])
     integration = int(sys.argv[6])
     
+# seventh argument states if temperature sensor is connected to Thorlabs PM100 or PM400
+if len(sys.argv) > 7:
+    if sys.argv[7] == "True":
+        thermometer = True
+        print('Temperature sensor connected to Thorlabs optical power meter is expected!')
+    else:
+        thermometer = False 
+        print('No temperature sensor is expected!')
+#print(thermometer)
 
 # connect to power meter and perform measurement
 try:
@@ -123,37 +137,64 @@ try:
             print('Sensor is not connected to Ophir Juno!')
 
     else:
-        tlPM = TLPM()
+        tlPM = TLPMX()
         deviceCount = c_uint32()
         try:
             tlPM.findRsrc(byref(deviceCount))
-            print('Thorlabs power meter connected!')
             Thorlabs = True
         except NameError as err:
+            print("Error")
             Thorlabs = False
         if Thorlabs:
-            resourceName = create_string_buffer(1024)
-            tlPM.getRsrcName(c_int(0), resourceName)
-            # print(c_char_p(resourceName.raw).value)
 
-            tlPM.open(resourceName, c_bool(True), c_bool(True))
+            # Connect to Thorlabs power meter
+            resourceName = create_string_buffer(1024);
+            tlPM.getRsrcName(c_int(0), resourceName);
+            # print(c_char_p(resourceName.raw).value);
+            tlPM.open(resourceName, c_bool(True), c_bool(True));
 
-            thermometer = False;
-            tlPM.setWavelength(c_double(float(wavelength)));
-            time.sleep(0.1);  # Without this delay the first number is consistently higher than the rest
+            # Check which Thorlabs power meter is connected
+            index = c_uint32(0)
+            modelName = create_string_buffer(1024)
+            serialNumber = create_string_buffer(1024)
+            manufacturer = create_string_buffer(1024)
+            deviceAvailable = c_int16()
+            tlPM.getRsrcInfo(index, modelName, serialNumber, manufacturer, deviceAvailable)
+            print(manufacturer.value.decode('utf-8').title() + ' ' + modelName.value.decode('utf-8') + ' optical power meter connected!')
 
-            # check if temperature sensor is connected
-            temperature = c_double();
+            # Set variable
+            name = create_string_buffer(1024)
+            snr = create_string_buffer(1024)
+            message = create_string_buffer(1024)
+            pType = c_int16()
+            pStype = c_int16()
+            pFlags = c_int16()
+            channel = c_uint16(1);
+
+            # Check to which channel the sensor is connected
             try:
-                tlPM.measExtNtcTemperature(byref(temperature));
-                thermometer = True;
+                tlPM.getSensorInfo(name, snr, message, byref(pType), byref(pStype), byref(pFlags), channel)
+                channel1 = True;
+                print("Found sensor connected to channel 1!")
             except NameError as err:
-                print("Temperature sensor not connected! ");
-                thermometer = False;
-                #print(err.args);
+                print("No sensor connected to channel 1!")
+                channel = c_uint16(2);
+                try:
+                    tlPM.getSensorInfo(name, snr, message, byref(pType), byref(pStype), byref(pFlags), channel)
+                    print("Found sensor connect to channel 2!")
+                except NameError as err:
+                    print("No sensor connected to channel 2!")
+            # print(name, snr, message, pType, pStype, pFlags, channel)
+            # print(name.value, snr.value, message.value, pType.value, pStype.value, pFlags.value,channel.value)
+
+            # Set the wavelength
+            tlPM.setWavelength(c_double(float(wavelength)), channel);
+            time.sleep(0.1);  # Without this delay the first number is consistently higher than the rest
 
             # check if file is empty, if not print headline
             if fout and os.stat(sys.argv[3]).st_size == 0:
+
+                # check if temperature sensor is connected
                 if thermometer:
                     print("timestamp", "wavelength", "setting", "power", "temperature", end='', sep='\t')
                     print("timestamp", "wavelength", "setting", "power", "temperature", end='', sep='\t', file=fout)
@@ -165,7 +206,12 @@ try:
                     print("\nYYYY-MM-DD HH:MM:SS", "nm", "s", "W", end='', sep='\t')
                     print("\nYYYY-MM-DD HH:MM:SS", "nm", "s", "W", end='', sep='\t', file=fout)
 
-            time.sleep(1.5)  # Without this delay the first number is consistently higher than the rest
+            # Without this delay the first number is consistently higher than the rest
+            time.sleep(2)
+
+            # Set variables needed for measurement
+            power = c_double();
+            temperature = c_double();
 
             # set starttime and measurement duration
             start = datetime.now();
@@ -174,7 +220,7 @@ try:
             average_until = start + timedelta(seconds=float(avgTime))
             average_start = average_until - timedelta(seconds=float(integration))
             while datetime.now() <= measure_until:
-                #print("\n" + str(datetime.now()) + " > " + str(average_start) + " < " + str(average_until) + "\n")
+                # print("\n" + str(datetime.now()) + " > " + str(average_start) + " < " + str(average_until) + "\n")
                 if datetime.now() >= average_start:
                     average_count = 0;
                     total_power = 0;
@@ -182,12 +228,11 @@ try:
 
                     start_average = datetime.now()
                     while (datetime.now() < average_until):
-                        power = c_double();
-                        tlPM.measPower(byref(power));
+                        tlPM.measPower(byref(power), channel);
                         total_power += power.value;
-                        #print('Reading = {0}, Timestamp = {1}, Count = {2}'.format(power.value, str(datetime.now()), average_count+1))
+                        # print('Reading = {0}, Timestamp = {1}, Count = {2}'.format(power.value, str(datetime.now()), average_count+1))
                         if thermometer:
-                            tlPM.measExtNtcTemperature(byref(temperature));
+                            tlPM.measExtNtcTemperature(byref(temperature), channel);
                             total_temperature += temperature.value;
                         average_count += 1;
 
@@ -202,18 +247,21 @@ try:
                         print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
                               total_power, total_temperature, end='', sep='\t')
                         if fout:
-                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
+                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength),
+                                  power_level,
                                   total_power, total_temperature, end='', sep='\t', file=fout)
                     else:
                         print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
                               total_power, end='', sep='\t')
                         if fout:
-                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
+                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength),
+                                  power_level,
                                   total_power, end='', sep='\t', file=fout)
                     average_until += timedelta(seconds=float(avgTime));
                     average_start = average_until - timedelta(seconds=float(integration))
             tlPM.close()
             tlPM = None
+
         else:
             print('No Ophir or Thorlabs powermeter connected')
 except OSError as err:

@@ -15,7 +15,8 @@ Above known to work with NIS Elements Ver. 5.30
 |Microscope | Control Software  | Light Source |  Power Meter |
 |------------|--------------|--------------|----------------|
 |[Zeiss LSM 800 & 900](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Zeiss-Zen-Blue)|ZEN Blue v. 3.1|Zeiss laser combiner|Thorlabs PM100USB (Optical Power Monitor v. 3.1)|
-|[Zeiss LSM 880](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Zeiss-Zen-Black)|ZEN Black v. 2.3|Zeiss laser combiner|Thorlabs PM400USB (Optical Power Monitor v. 4.1)|
+|[Zeiss LSM 880](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Zeiss-Zen-Black)|ZEN Black v. 2.3|Zeiss laser combiner|Thorlabs PM400USB (Optical Power Monitor v. 5.0)|
+|[Zeiss LSM 880](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Zeiss-Zen-Black)|ZEN Black v. 2.3|Zeiss laser combiner|Thorlabs PM5020USB (Optical Power Monitor v. 5.0)|
 |[Zeiss LSM 880](https://github.com/QUAREP-LiMi/WG1-Automation/tree/main/Microscope_Systems/Zeiss-Zen-Black)|ZEN Black v. 2.3|Zeiss laser combiner|Ophir Juno (PD300-MS)|
 
 ## Authors
