@@ -2,9 +2,10 @@
 # Introduction
 This program allows a series of tests over illumination sources for Zeiss widefield and confocal microscopes running Zen Black. It is possibe to test:
 
-Short term stability: According to QUAREP-LiMi full test is completed in 5 minutes for each illumination line, testing powers every second.<br />
-Long term stability: The QUAREP-LiMi protocol stablishes 2h tests per line, with measurement intervals of 30s. <br />
-Linearity (response): To analyze the linearity -or response curve- of each light source the powers are measured for a series of set powers.<br />
+* Short term stability: According to QUAREP-LiMi full test is completed in 5 minutes for each illumination line, testing powers every second.
+* Long term stability: The QUAREP-LiMi protocol stablishes 2h tests per line, with measurement intervals of 30s.
+* Linearity (response): To analyze the linearity -or response curve- of each light source the powers are measured for a series of set powers.
+
 These tests can be performed for the desired lines and for different test conditions.
 
 # Disclaimer
