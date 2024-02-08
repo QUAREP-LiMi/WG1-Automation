@@ -20,7 +20,11 @@ This program allows automatic power measurements for Zeiss microscopes running Z
 
 This software follows this hierarchy: Zen macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
 
-The "Zen macro" runs under Zen Black. If you have Microsoft Office installed on your computer, copy the VBA file called "Power-Measurement.lvb" into:
+Download all files and configurations and put them into a folder of your choice, e.g.
+
+	C:\Users\desiredUser\QUAREP
+ 
+The "Zen macro" runs under Zen Black. If you have Microsoft Office installed on your computer, copy the VBA file called "Power-Measurement.lvb" from the "Zen macro" folder into:
 
 	C:\Users\desiredUser\Documents\Carl Zeiss\ZEN\Documents\Macros
 
@@ -37,19 +41,14 @@ power meter device. You can download the Thorlabs software under
 
 https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM
  
-The Zen software needs to load configuration files to setup the light sources. In this
-way the macro can be adapted to different microscopes, as long as the configuration files
-are created at the same system. These files should be stored in the "Configs" folder.
-
-The measurementConfig.csv file contains variable and paths needed to resolve all the 
-dependencies. 
-
 # Ophir power meter
 To able to use the Ophir power meter you need to download the latest version of StarLabs
 
 https://www.ophiropt.com/laser--measurement/software/starlab-for-usb
 
 # Configuration
+The Zen software needs to load different files to function. In this way the macro can be adapted to different microscopes, as long as the configuration files are created at the same system. 
+
 The following files are needed for the Macro:
 
 	a. The VBA Macro named “Power-Measurement.lvb” in the main folder (or “Power-Measurement-without-Office.lvb”)
@@ -67,7 +66,82 @@ The Thorlabs dll (e) can be found under:
 	
 	C:\Program Files\IVI Foundation\VISA\Win64\Bin
 
-The folders may vary depending on your operation system. Copy both files int the “PythonScripts” folder.
+The folders may vary depending on your operation system. Copy both files into the “PythonScripts” folder. In the following table you can find the standard source folder and the suggested destination folder:
+
+<table>
+  <thead>
+    <tr>
+      <th align="left">
+        File
+      </th>
+      <th align="left">
+        Soucre
+      </th>
+      <th align="left">
+        Destination
+      </th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+      <td>
+        a.
+      </td>
+      <td>
+	https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/Zen%20macro/Power-Measurement.lvb
+        https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/Zen%20macro/Power-Measurement-without-Office.lvb
+      </td>
+      <td>
+        C:\Users\desired-username\Documents\Carl Zeiss\ZEN\Documents\Macros
+	C:\Users\desired-username\Documents\Carl Zeiss\ZEN\Documents\Macros
+      </td>
+    </tr>
+    <tr>
+      <td>
+        b.
+      </td>
+      <td>
+        https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/pythonScripts/measurePowers.pyw
+      </td>
+      <td>
+        C:\Users\your-username\QUAREP\Zen macro\scrips\measurePowers.pyw
+      </td>
+    </tr>
+    <tr>
+      <td>
+        c.
+      </td>
+      <td>
+        https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/measurementConfig.csv
+      </td>
+      <td>
+        C:\Users\your-username\QUAREP\Zen macro\measurementConfig.csv
+      </td>
+    </tr>
+    <tr>
+      <td>
+        d
+      </td>
+      <td>
+        C:\Program Files (x86)\IVI Foundation\VISA\WinNT\TLPMX\Examples\Python\TLPMX.py
+      </td>
+      <td>
+         C:\Users\your-username\QUAREP\Zen macro\scrips\TLPMX.py
+      </td>
+    </tr>
+    <tr>
+      <td>
+        e
+      </td>
+      <td>
+        C:\Program Files\IVI Foundation\VISA\Win64\Bin\TLPMX_64.dll
+      </td>
+      <td>
+         C:\Users\your-username\QUAREP\Zen macro\scrips\TLPMX_64.dll
+      </td>
+    </tr>   
+    </tbody>
+</table>
 
 # Alter TLMPX.py file
 Open the file
