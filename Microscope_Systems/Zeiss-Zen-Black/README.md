@@ -56,7 +56,7 @@ The following files are needed for the Macro:
 	c. The configuration file “measurementConfig.csv” in the main folder
  	d. The python Thorlabs library name “TLPMX.py” (only for Thorlab power meters)
  	e. The Thorlabs dll named “TLPMX_64.dll” or “TLPMX_32.dll” (only for Thorlab power meters)
-  	f. pywin32 package for python (miniconda, only for Ophir power meters)
+  	f. "pywin32" package for python (miniconda, only for Ophir power meters)
 
 The files d, e and f are not part of the Macro download. The Thorlabs python library (d) can be found under: 
 	
@@ -66,7 +66,13 @@ The Thorlabs dll (e) can be found under:
 	
 	C:\Program Files\IVI Foundation\VISA\Win64\Bin
 
-The folders may vary depending on your operation system. Copy both files into the “PythonScripts” folder. In the following table you can find the standard source folder and the suggested destination folder:
+The folders may vary depending on your operation system. Copy both files into the “PythonScripts” folder. 
+
+The "pywin32" package f is only needed for the Ophir power meter. To install the "pywin32" package open a anaconda command prompt and type
+
+	conda install pywin32
+
+In the following table you can find the standard source folder and the suggested destination folder:
 
 <table>
   <thead>
@@ -164,11 +170,6 @@ You do not need to alter the file in a text editor as you can also alter it duri
 	 “measurementConfig.csv”
 
 in a text editor. Change the “scriptPath” in line 3 to the path where you stored the “measurePowers.pyw” script. Change the “dataSavePath” to the path where you want to store your measurement data. Change the “expName” to the corresponding name of the experiment in ZEN Black. Change the “expLocation” to the name of your facility.
-
-# Install the pywin32 package using miniconda (only Ophir power meter)
-This additional package is only needed for the Ophir power meter. Open a anaconda command prompt and type
-
-	conda install pywin32
 
 # Create an experiment in Zeiss Zen Black
 Create an experiment in the ZEN Black software according to the QUAREP Power Measurement Protocol:
