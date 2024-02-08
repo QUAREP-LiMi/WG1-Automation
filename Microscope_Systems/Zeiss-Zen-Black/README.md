@@ -1,5 +1,5 @@
-# Laser Power Measurement Zen Black
-# Introduction
+# 1 Laser Power Measurement Zen Black
+## 1.1 Introduction
 This program allows a series of tests over illumination sources for Zeiss widefield and confocal microscopes running Zen Black. It is possibe to test:
 
 * Short term stability: According to QUAREP-LiMi full test is completed in 5 minutes for each illumination line, testing powers every second.
@@ -8,15 +8,16 @@ This program allows a series of tests over illumination sources for Zeiss widefi
 
 These tests can be performed for the desired lines and for different test conditions.
 
-# Disclaimer
+## 1.2 Disclaimer
 High illumination powers represent a safety hazard for the equipment and for the operators. We assume that this software will be used by qualified personnel, with a sufficient degree of understanding of the system being used and of the process of light power intensity assessment. It is also assumed that all applicable laser safety regulations are followed.
 
 This program was tested successfully in a specific microscope. We provide it in the hope that it is helpful, but we cannot provide support or warranty of any kind. Differences between similar microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations needed from one to another require the understanding of the code. Despite unlikely, damage to the equipment caused by wrong edits or by unforeseen circumstances is still possible. While unlikely, damage to the equipment caused by wrong edits or by unforeseen circumstances is still possible. Proceed at your own risk, following the local safety regulations and  by by ensuring complete understanding of the programs prior to their execution. In particular, for testing purposes we strongly advise to employ low laser power settings and reduced number of loops.
 
-# Tested configurations
+## 1.3 Tested configurations
 This program has been tested under Zen Black v. 2.3, running for Zeiss LSM800 (inverted and upright) confocal. According to our experience no changes were required to adapt the program between diferent systems of the same type.
 
-# Installation
+# 2 Installation
+## 2.1 Macro files
 This program allows automatic power measurements for Zeiss microscopes running Zen Black
 
 This software follows this hierarchy: Zen macro -> measurePowers.pyw -> TLPM.py -> TLPM_64.dll
@@ -31,22 +32,24 @@ The "Zen macro" runs under Zen Black. If you have Microsoft Office installed on 
 
 to make the macro available. If you do not have Microsoft Office installed on your computer, copy the VBA file called "Power-Measurement-without-Office.lvb" in the same directory. If desiredUser is "all users" the macro will be available for all windows users
 
+## 2.2 Python interpreter
 The Zen macro connects to a python interpreter (miniconda suggested) and invokes the 
 measurePowers.pyw script. You can download miniconda under:
 
 https://docs.conda.io/en/latest/miniconda.html
 
-# Thorlabs power meter
+## 2.3 Thorlabs power meter
 The TLPM files from Thorlabs bring the low level access to the power meter device. You can download the Thorlabs software under
 
 https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM
  
-# Ophir power meter
+## 2.4 Ophir power meter
 To able to use the Ophir power meter you need to download the latest version of StarLabs
 
 https://www.ophiropt.com/laser--measurement/software/starlab-for-usb
 
-# Configuration
+# 3 Configuration
+## 3.1 Need files
 The Zen software needs to load different files to function. In this way the macro can be adapted to different microscopes, as long as the configuration files are created at the same system. 
 
 The following files are needed for the Macro:
@@ -149,7 +152,7 @@ In the following table you can find the standard source folder and the suggested
     </tbody>
 </table>
 
-# Alter TLMPX.py file
+# 3.2 Alter "TLMPX.py" file
 Open the file
 
 	“TLPMX.py” 
@@ -163,7 +166,7 @@ to
 
 Note that folder have to be separated by a double backslash “\\”. Save and close the file.
 
-# Alter measurementConfig.csv file
+## 3.3 Alter "measurementConfig.csv" file
 
 You do not need to alter the file in a text editor as you can also alter it during execution of the macro later on. However it is possible to alter the file. Therefore open the file 
 	 
@@ -171,17 +174,18 @@ You do not need to alter the file in a text editor as you can also alter it duri
 
 in a text editor. Change the “scriptPath” in line 3 to the path where you stored the “measurePowers.pyw” script. Change the “dataSavePath” to the path where you want to store your measurement data. Change the “expName” to the corresponding name of the experiment in ZEN Black. Change the “expLocation” to the name of your facility.
 
-# Create an experiment in Zeiss Zen Black
+# 4 Macro in ZEN Black
+## 4.1 Create an experiment in Zeiss Zen Black
 Create an experiment in the ZEN Black software according to the QUAREP Power Measurement Protocol:
 
 https://www.protocols.io/view/illumination-power-stability-and-linearity-measure-5jyl853ndl2w/v2
 
 No laser source must be chosen. Note that depending on the software version a continuous measurement mode is not possible if point scan is selected. Therefore a “Time Series” with maximum number of cycles has to be selected. (It has not been tested yet if this is long enough for a “Long Measurement” of 2 hours). Save the experiment under the same name as the “expName” in the “measurementConfig.csv” file.
 
-# Load the macro
+## 4.2 Load the macro
 To load the macro go to the top menu and select “Macro…” from the drop down menu of the “Macro” (shortcut ALT+F8)). Click on load and search for the folder in which you stored the macro and choose the file “Power-Measurement.lvb” (or “Power-Measurement-without-Office.lvb”). You can assign it to the drop down menu by clicking on the tab “Assign Macro” and then choose the file again and insert a name.
 
-# Execute macro for the first time
+## 4.3 Execute macro for the first time
 If you start the macro for the first time it will first search for the configuration file ”measurementConfig.csv” under:
 
 	C:\Users\your-username\QUAREP\
@@ -264,14 +268,14 @@ Before you start you have to choose your wavelength, beam splitter, power and ty
 
 If you have a temperature sensor is connected to you Thorlabs power meter you can check this option. Do not check this option if no temperature sensor is connected to you Thorlabs device as this will lead to an error.
 
-# Contribution
+# 5. Contribution
 Your contributions, comments and participation are very welcome. We are happy if you can copy and modify these macros for your needs, but if they also benefit the rest of the microscopy community we invite you to join us as a contributor.
 
-# Authors
-Macros (”Power-Measurement.lvb",”Power-Measurement-without-office.lvb"):<br />
+## 5.1 Authors
+### Macros (”Power-Measurement.lvb",”Power-Measurement-without-office.lvb")
 Arne Fallisch (Life Imaging Center, Albert–Ludwigs–Universität Freiburg) arne.fallisch@bioss.uni-freiburg.de<br />
 
-Python script (measurePowers.pyw):<br />
+### Python script (measurePowers.pyw)
 Arne Fallisch (Life Imaging Center, Albert–Ludwigs–Universität Freiburg) arne.fallisch@bioss.uni-freiburg.de<br />
 Kees van der Oord (Nikon)<br />
 Nasser Darwish (Imaging and Optics Facility, Institute of Science and Technology Austria)
