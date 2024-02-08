@@ -2,9 +2,9 @@
 # Introduction
 This program allows a series of tests over illumination sources for Zeiss widefield and confocal microscopes running Zen Black. It is possibe to test:
 
-Short term stability: According to QUAREP-LiMi full test is completed in 5 minutes for each illumination line, testing powers every second.
-Long term stability: The QUAREP-LiMi protocol stablishes 2h tests per line, with measurement intervals of 30s. 
-Linearity (response): To analyze the linearity -or response curve- of each light source the powers are measured for a series of set powers.
+Short term stability: According to QUAREP-LiMi full test is completed in 5 minutes for each illumination line, testing powers every second.<br />
+Long term stability: The QUAREP-LiMi protocol stablishes 2h tests per line, with measurement intervals of 30s. <br />
+Linearity (response): To analyze the linearity -or response curve- of each light source the powers are measured for a series of set powers.<br />
 These tests can be performed for the desired lines and for different test conditions.
 
 # Disclaimer
@@ -36,8 +36,7 @@ measurePowers.pyw script. You can download miniconda under:
 https://docs.conda.io/en/latest/miniconda.html
 
 # Thorlabs power meter
-The TLPM files from Thorlabs bring the low level access to the 
-power meter device. You can download the Thorlabs software under
+The TLPM files from Thorlabs bring the low level access to the power meter device. You can download the Thorlabs software under
 
 https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM
  
