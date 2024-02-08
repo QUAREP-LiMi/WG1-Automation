@@ -98,8 +98,8 @@ In the following table you can find the standard source folder and the suggested
         https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/Zen%20macro/Power-Measurement-without-Office.lvb
       </td>
       <td>
-        C:\Users\desired-username\Documents\Carl Zeiss\ZEN\Documents\Macros
-	C:\Users\desired-username\Documents\Carl Zeiss\ZEN\Documents\Macros
+        C:\Users\desired-username\Documents\Carl Zeiss\ZEN\Documents\Macros\Power-Measurement.lvb
+	C:\Users\desired-username\Documents\Carl Zeiss\ZEN\Documents\Macros\Power-Measurement-without-Office.lvb
       </td>
     </tr>
     <tr>
