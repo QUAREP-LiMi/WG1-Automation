@@ -268,10 +268,10 @@ If you have a temperature sensor is connected to you Thorlabs power meter you ca
 Your contributions, comments and participation are very welcome. We are happy if you can copy and modify these macros for your needs, but if they also benefit the rest of the microscopy community we invite you to join us as a contributor.
 
 # Authors
-Macros (”Power-Measurement.lvb",”Power-Measurement-without-office.lvb"):
-Arne Fallisch (Life Imaging Center, Albert–Ludwigs–Universität Freiburg) arne.fallisch@bioss.uni-freiburg.de
+Macros (”Power-Measurement.lvb",”Power-Measurement-without-office.lvb"):<br />
+Arne Fallisch (Life Imaging Center, Albert–Ludwigs–Universität Freiburg) arne.fallisch@bioss.uni-freiburg.de<br />
 
-Python script (measurePowers.pyw)
-Arne Fallisch (Life Imaging Center, Albert–Ludwigs–Universität Freiburg) arne.fallisch@bioss.uni-freiburg.de
-Kees van der Oord (Nikon) 
+Python script (measurePowers.pyw):<br />
+Arne Fallisch (Life Imaging Center, Albert–Ludwigs–Universität Freiburg) arne.fallisch@bioss.uni-freiburg.de<br />
+Kees van der Oord (Nikon)<br />
 Nasser Darwish (Imaging and Optics Facility, Institute of Science and Technology Austria)
