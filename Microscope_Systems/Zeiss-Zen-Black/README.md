@@ -1,6 +1,6 @@
 # Laser Power Measurement Zen Black
 # Introduction
-This program allows a series of tests over illumination sources for Zeiss widefield and confocal microscopes running Zen Blue. It is possibe to test:
+This program allows a series of tests over illumination sources for Zeiss widefield and confocal microscopes running Zen Black. It is possibe to test:
 
 Short term stability: According to QUAREP-LiMi full test is completed in 5 minutes for each illumination line, testing powers every second.
 Long term stability: The QUAREP-LiMi protocol stablishes 2h tests per line, with measurement intervals of 30s. 
