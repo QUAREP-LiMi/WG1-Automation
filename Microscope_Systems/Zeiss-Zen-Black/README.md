@@ -125,11 +125,67 @@ You can see additional settings by clicking on the button “More settings”. T
 
 Before you start you have to choose your wavelength, beam splitter, power and type of measurement. All beam splitters of your instrument will appear in a dropdown menu. You can choose your beam splitters depending on your wavelength. The chosen power will be measured for every wavelength in case of a short or long measurement. For linearity measurements you can choose how many measurements point you want to have per decade. Here are some examples for this settings:
 
-Steps	Decade	Laser powers
-10		1		10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 %
-10		2		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 %
-5		1		20, 40, 60, 80 and 100 %
-5		2		2, 4, 6, 8, 10, 20, 40, 60, 80 and 100 %
+<table>
+  <thead>
+    <tr>
+      <th>
+        Steps
+      </th>
+      <th>
+        Decade
+      </th> 
+      <th align="left">
+        Laser power
+      </th>
+    </tr>
+  </thead>
+    <tbody>
+    <tr>
+      <td>
+        10
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 %
+      </td>
+    </tr>
+    <tr>
+      <td>
+        10
+      </td>
+      <td>
+        2
+      </td>
+      <td>
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90 and 100 %
+      </td>
+    </tr>
+    <tr>
+      <td>
+        5
+      </td>
+      <td>
+        1
+      </td>
+      <td>
+        20, 40, 60, 80 and 100 %    
+      </td>
+    </tr>
+    <tr>
+      <td>
+        5
+      </td>
+      <td>
+        2
+      </td>
+      <td>
+         2, 4, 6, 8, 10, 20, 40, 60, 80 and 100 %
+      </td>
+    </tr>
+    </tbody>
+</table>
 
 If you have a temperature sensor is connected to you Thorlabs power meter you can check this option. Do not check this option if no temperature sensor is connected to you Thorlabs device as this will lead to an error.
 
