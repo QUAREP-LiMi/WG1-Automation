@@ -1,4 +1,4 @@
-Laser Power Measurement Zen Black
+ Laser Power Measurement Zen Black
 =================================
 # 1 Introduction
 ## 1.1 Power measurements
@@ -51,7 +51,7 @@ To able to use the Ophir power meter you need to download the latest version of 
 https://www.ophiropt.com/laser--measurement/software/starlab-for-usb
 
 # 3 Configuration
-## 3.1 Need files
+## 3.1 Needed files
 The Zen software needs to load different files to function. In this way the macro can be adapted to different microscopes, as long as the configuration files are created at the same system. 
 
 The following files are needed for the Macro:
