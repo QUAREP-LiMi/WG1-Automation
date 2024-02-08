@@ -1,6 +1,8 @@
-# 1 Laser Power Measurement Zen Black
-## 1.1 Introduction
-This program allows a series of tests over illumination sources for Zeiss widefield and confocal microscopes running Zen Black. It is possibe to test:
+Laser Power Measurement Zen Black
+=================================
+# 1 Introduction
+## 1.1 Power measurements
+This program allows a series of tests over illumination sources for Zeiss confocal microscopes running Zen Black. It is possibe to test:
 
 * Short term stability: According to QUAREP-LiMi full test is completed in 5 minutes for each illumination line, testing powers every second.
 * Long term stability: The QUAREP-LiMi protocol stablishes 2h tests per line, with measurement intervals of 30s.
@@ -8,13 +10,13 @@ This program allows a series of tests over illumination sources for Zeiss widefi
 
 These tests can be performed for the desired lines and for different test conditions.
 
-## 1.2 Disclaimer
+## 1.2 Tested configurations
+This program has been tested under Zen Black v. 2.3, running for Zeiss LSM800 (inverted and upright) confocal. According to our experience no changes were required to adapt the program between diferent systems of the same type.
+
+## 1.3 Disclaimer
 High illumination powers represent a safety hazard for the equipment and for the operators. We assume that this software will be used by qualified personnel, with a sufficient degree of understanding of the system being used and of the process of light power intensity assessment. It is also assumed that all applicable laser safety regulations are followed.
 
 This program was tested successfully in a specific microscope. We provide it in the hope that it is helpful, but we cannot provide support or warranty of any kind. Differences between similar microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations needed from one to another require the understanding of the code. Despite unlikely, damage to the equipment caused by wrong edits or by unforeseen circumstances is still possible. While unlikely, damage to the equipment caused by wrong edits or by unforeseen circumstances is still possible. Proceed at your own risk, following the local safety regulations and  by by ensuring complete understanding of the programs prior to their execution. In particular, for testing purposes we strongly advise to employ low laser power settings and reduced number of loops.
-
-## 1.3 Tested configurations
-This program has been tested under Zen Black v. 2.3, running for Zeiss LSM800 (inverted and upright) confocal. According to our experience no changes were required to adapt the program between diferent systems of the same type.
 
 # 2 Installation
 ## 2.1 Macro files
