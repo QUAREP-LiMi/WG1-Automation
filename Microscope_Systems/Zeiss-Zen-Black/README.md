@@ -1,4 +1,4 @@
- Laser Power Measurement Zen Black
+Laser Power Measurement Zen Black
 =================================
 # 1 Introduction
 ## 1.1 Power measurements
@@ -26,19 +26,19 @@ This software follows this hierarchy: Zen macro -> measurePowers.pyw -> TLPM.py 
 
 Download all files and configurations and put them into a folder of your choice, e.g.
 
-	C:\Users\desiredUser\QUAREP
+	C:\Users\your-username\QUAREP\PowerMeasurement\
  
 The "Zen macro" runs under Zen Black. If you have Microsoft Office installed on your computer, copy the VBA file called "Power-Measurement.lvb" from the "Zen macro" folder into:
 
-	C:\Users\desiredUser\Documents\Carl Zeiss\ZEN\Documents\Macros
+	C:\Users\your-username\Documents\Carl Zeiss\ZEN\Documents\Macros
 
 to make the macro available. If you do not have Microsoft Office installed on your computer, copy the VBA file called "Power-Measurement-without-Office.lvb" in the same directory. If desiredUser is "all users" the macro will be available for all windows users
 
 ## 2.2 Python interpreter
-The Zen macro connects to a python interpreter (miniconda suggested) and invokes the 
-measurePowers.pyw script. You can download miniconda under:
+The Zen macro connects to a python interpreter and invokes the 
+measurePowers.pyw script. Therefore you can download and install the QUAREP-LiMi Toolkit under:
 
-https://docs.conda.io/en/latest/miniconda.html
+https://github.com/QUAREP-LiMi/QUAREP-LiMi-Tool-Kit
 
 ## 2.3 Thorlabs power meter
 The TLPM files from Thorlabs bring the low level access to the power meter device. You can download the Thorlabs software under
@@ -61,7 +61,7 @@ The following files are needed for the Macro:
 	c. The configuration file “measurementConfig.csv” in the main folder
  	d. The python Thorlabs library name “TLPMX.py” (only for Thorlab power meters)
  	e. The Thorlabs dll named “TLPMX_64.dll” or “TLPMX_32.dll” (only for Thorlab power meters)
-  	f. "pywin32" package for python (miniconda, only for Ophir power meters)
+  	f. "pywin32" package for python (python interpreter, only for Ophir power meters)
 
 The files d, e and f are not part of the Macro download. The Thorlabs python library (d) can be found under: 
 	
@@ -73,9 +73,13 @@ The Thorlabs dll (e) can be found under:
 
 The folders may vary depending on your operation system. Copy both files into the “PythonScripts” folder. 
 
-The "pywin32" package f is only needed for the Ophir power meter. To install the "pywin32" package open a anaconda command prompt and type
+The "pywin32" package f is only needed for the Ophir power meter. To install the "pywin32" package open a command prompt and change the folder to 
 
-	conda install pywin32
+C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\
+
+and type
+
+	pip install pywin32
 
 In the following table you can find the standard source folder and the suggested destination folder:
 
@@ -103,8 +107,8 @@ In the following table you can find the standard source folder and the suggested
         https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/Zen%20macro/Power-Measurement-without-Office.lvb
       </td>
       <td>
-        C:\Users\desired-username\Documents\Carl Zeiss\ZEN\Documents\Macros\Power-Measurement.lvb
-	C:\Users\desired-username\Documents\Carl Zeiss\ZEN\Documents\Macros\Power-Measurement-without-Office.lvb
+        C:\Users\your-username\Documents\Carl Zeiss\ZEN\Documents\Macros\Power-Measurement.lvb
+	C:\Users\your-username\Documents\Carl Zeiss\ZEN\Documents\Macros\Power-Measurement-without-Office.lvb
       </td>
     </tr>
     <tr>
@@ -115,7 +119,7 @@ In the following table you can find the standard source folder and the suggested
         https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/pythonScripts/measurePowers.pyw
       </td>
       <td>
-        C:\Users\your-username\QUAREP\Zen macro\scrips\measurePowers.pyw
+        C:\Users\your-username\QUAREP\PowerMeasurement\measurePowers.pyw
       </td>
     </tr>
     <tr>
@@ -126,7 +130,7 @@ In the following table you can find the standard source folder and the suggested
         https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/measurementConfig.csv
       </td>
       <td>
-        C:\Users\your-username\QUAREP\Zen macro\measurementConfig.csv
+        C:\Users\your-username\QUAREP\PowerMeasurement\measurementConfig.csv
       </td>
     </tr>
     <tr>
@@ -137,7 +141,7 @@ In the following table you can find the standard source folder and the suggested
         C:\Program Files (x86)\IVI Foundation\VISA\WinNT\TLPMX\Examples\Python\TLPMX.py
       </td>
       <td>
-         C:\Users\your-username\QUAREP\Zen macro\scrips\TLPMX.py
+         C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\TLPMX.py
       </td>
     </tr>
     <tr>
@@ -148,13 +152,13 @@ In the following table you can find the standard source folder and the suggested
         C:\Program Files\IVI Foundation\VISA\Win64\Bin\TLPMX_64.dll
       </td>
       <td>
-         C:\Users\your-username\QUAREP\Zen macro\scrips\TLPMX_64.dll
+         C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\TLPMX_64.dll
       </td>
     </tr>   
     </tbody>
 </table>
 
-# 3.2 Alter "TLMPX.py" file
+# 3.2 Alter "TLMPX.py" file (should not be necessary any more, only in case the .py or .dll is not found)
 Open the file
 
 	“TLPMX.py” 
@@ -164,17 +168,9 @@ in a text editor. Go to line 287 for a 32 bit system or 289 for a 64 bit system 
 	("TLPMX_64.dll")
 to
 	
-	("C:\\the\\path\\to\\your\\folder\\TLPMX_64.dll")
+	("C:\\Program Files\\QuaRep\\QUAREP-LiMi Tool Kit\\python\\TLPMX_64.dll")
 
 Note that folder have to be separated by a double backslash “\\”. Save and close the file.
-
-## 3.3 Alter "measurementConfig.csv" file
-
-You do not need to alter the file in a text editor as you can also alter it during execution of the macro later on. However it is possible to alter the file. Therefore open the file 
-	 
-	 “measurementConfig.csv”
-
-in a text editor. Change the “scriptPath” in line 3 to the path where you stored the “measurePowers.pyw” script. Change the “dataSavePath” to the path where you want to store your measurement data. Change the “expName” to the corresponding name of the experiment in ZEN Black. Change the “expLocation” to the name of your facility.
 
 # 4 Macro in ZEN Black
 ## 4.1 Create an experiment in Zeiss Zen Black
@@ -188,21 +184,21 @@ No laser source must be chosen. Note that depending on the software version a co
 To load the macro go to the top menu and select “Macro…” from the drop down menu of the “Macro” (shortcut ALT+F8)). Click on load and search for the folder in which you stored the macro and choose the file “Power-Measurement.lvb” (or “Power-Measurement-without-Office.lvb”). You can assign it to the drop down menu by clicking on the tab “Assign Macro” and then choose the file again and insert a name.
 
 ## 4.3 Execute macro for the first time
-If you start the macro for the first time it will first search for the configuration file ”measurementConfig.csv” under:
+If you start the macro for the first time it will ask if it should create the configuration file ”measurementConfig.csv” under:
 
-	C:\Users\your-username\QUAREP\
-
-If the file cannot be found in this folder a user dialog allows you to choose a folder containing the configuration file ”measurementConfig.csv”. This works only with the "Power-Measurement.lvb" macro. If you use the “Power-Measurement-without-Office.lvb” macro you have to change the location of the configuration file in line 50 in "Module1" in the VBA editor from
+	C:\Users\your-username\QUAREP\PowerMeasurement\
 	
-	fileName = "C:\Users\" & Environ$("UserName") & "\QUAREP\measurementConfig.csv"
+If you do not create the configuration file and the file is not found in this folder a user dialog allows you to choose a folder containing the configuration file ”measurementConfig.csv”. This works only with the "Power-Measurement.lvb" macro. If you use the “Power-Measurement-without-Office.lvb” macro you have to change the location of the configuration file in line 50 in "Module1" in the VBA editor from
+	
+	fileName = "C:\Users\" & Environ$("UserName") & "\QUAREP\PowerMeasurement\measurementConfig.csv"
 to
 	
 	fileName = "your-measurementConfig.csv-file-location"
 
 After the file is read it takes some time until the user form pops up as the macro loops through all beam splitters to get the relevant information. After that the user form appears. You can save your configuration at any time by clicking on the “Save Config” button which allows you to choose a folder where the configuration file “measurementConfig.csv“ will be saved (only for "Power-Measurement.lvb" macro). Be aware that your previous configuration will be overwritten if it is in the same folder. 
-Saving the configuration will also speed up the start of the script next time, as the loop through all beam splitters is spared and instead read from the configuration file. Keep in mind that you delete the beam splitters from your configuration file when you have replace beam splitters in between measurements.
+Saving the configuration will also speed up the start of the script next time, as the loop through all beam splitters is spared and instead read from the configuration file. Keep in mind that you delete the beam splitters from your configuration file when you have replace beam splitters in between measurements. You can also delete the complete measurementConfig.csv file.
 
-You can see additional settings by clicking on the button “More settings”. This opens another user form beneath the main from where you can set up your experiment name, python path, script path etc. If you click the save button all settings will be saved in this session. To save them permanently in a configuration file you have to click on “Save Config” in the main user form.
+You can see additional settings by clicking on the button “More settings”. This opens another user form beneath the main from where you can set up your experiment name, python path, script path etc. Make sure that the experiment name matches the name of you ZEN experiment. If you click the save button all settings will be saved in this session. To save them permanently in a configuration file you have to click on “Save Config” in the main user form.
 
 Before you start you have to choose your wavelength, beam splitter, power and type of measurement. All beam splitters of your instrument will appear in a dropdown menu. You can choose your beam splitters depending on your wavelength. The chosen power will be measured for every wavelength in case of a short or long measurement. For linearity measurements you can choose how many measurements point you want to have per decade. Here are some examples for this settings:
 
@@ -268,7 +264,9 @@ Before you start you have to choose your wavelength, beam splitter, power and ty
     </tbody>
 </table>
 
-If you have a temperature sensor is connected to you Thorlabs power meter you can check this option. Do not check this option if no temperature sensor is connected to you Thorlabs device as this will lead to an error.
+If you have a temperature sensor is connected to you Thorlabs power meter you can check this option. Do not check this option if no temperature sensor is connected to you Thorlabs device as this will lead to an error. The measurement results will be save under
+
+	C:\Users\your-username\QUAREP\PowerMeasurement\output\
 
 # 5. Contribution
 Your contributions, comments and participation are very welcome. We are happy if you can copy and modify these macros for your needs, but if they also benefit the rest of the microscopy community we invite you to join us as a contributor.
