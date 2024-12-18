@@ -103,8 +103,8 @@ In the following table you can find the standard source folder and the suggested
         a.
       </td>
       <td>
-	https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/Zen%20macro/Power-Measurement.lvb
-        https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/Zen%20macro/Power-Measurement-without-Office.lvb
+		https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/Zen%20macro/Power-Measurement.lvb<br />
+		https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/Zen%20macro/Power-Measurement-without-Office.lvb
       </td>
       <td>
         C:\Users\your-username\Documents\Carl Zeiss\ZEN\Documents\Macros\Power-Measurement.lvb
@@ -119,7 +119,7 @@ In the following table you can find the standard source folder and the suggested
         https://github.com/QUAREP-LiMi/WG1-Automation/blob/main/Microscope_Systems/Zeiss-Zen-Black/pythonScripts/measurePowers.pyw
       </td>
       <td>
-        C:\Users\your-username\QUAREP\PowerMeasurement\measurePowers.pyw
+        C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\measurePowers.pyw
       </td>
     </tr>
     <tr>
@@ -138,9 +138,11 @@ In the following table you can find the standard source folder and the suggested
         d
       </td>
       <td>
-        C:\Program Files (x86)\IVI Foundation\VISA\WinNT\TLPMX\Examples\Python\TLPMX.py
+        C:\Program Files (x86)\IVI Foundation\VISA\WinNT\TLPMX\Examples\Python\TLPM.py<br />
+		C:\Program Files (x86)\IVI Foundation\VISA\WinNT\TLPMX\Examples\Python\TLPMX.py
       </td>
       <td>
+		C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\TLPM.py<br />
          C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\TLPMX.py
       </td>
     </tr>
@@ -149,9 +151,11 @@ In the following table you can find the standard source folder and the suggested
         e
       </td>
       <td>
-        C:\Program Files\IVI Foundation\VISA\Win64\Bin\TLPMX_64.dll
+		 C:\Program Files\IVI Foundation\VISA\Win64\Bin\TLPM_64.dll<br />
+         C:\Program Files\IVI Foundation\VISA\Win64\Bin\TLPMX_64.dll
       </td>
       <td>
+		 C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\TLPM_64.dll<br />
          C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\TLPMX_64.dll
       </td>
     </tr>   
