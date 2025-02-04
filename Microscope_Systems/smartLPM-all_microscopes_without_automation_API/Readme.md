@@ -1,0 +1,1 @@
+This sub-repository will be dedicated to the semiautomatic power measurement SmartLPM tool. This software classifies illumination pulses according to a table, allowing automatic power measurements at microscopes without automation application programming interfaces (APIs).
