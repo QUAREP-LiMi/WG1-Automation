@@ -2,21 +2,21 @@ Laser Power Measurement Zen Black
 =================================
 # 1 Introduction
 ## 1.1 Power measurements
-This program allows a series of tests over illumination sources for Zeiss confocal microscopes running Zen Black. It is possibe to test:
+This program allows a series of tests of illumination sources for Zeiss confocal microscopes running Zen Black. It is possible to test:
 
 * Short term stability: According to QUAREP-LiMi full test is completed in 5 minutes for each illumination line, testing powers every second.
-* Long term stability: The QUAREP-LiMi protocol stablishes 2h tests per line, with measurement intervals of 30s.
+* Long term stability: The QUAREP-LiMi protocol establishes 2h tests per line, with measurement intervals of 30s.
 * Linearity (response): To analyze the linearity -or response curve- of each light source the powers are measured for a series of set powers.
 
 These tests can be performed for the desired lines and for different test conditions.
 
 ## 1.2 Tested configurations
-This program has been tested under Zen Black v. 2.3, running for Zeiss LSM800 (inverted and upright) confocal. According to our experience no changes were required to adapt the program between diferent systems of the same type.
+This program has been tested under Zen Black v. 2.3, running for Zeiss LSM800 (inverted and upright) confocal. According to our experience no changes were required to adapt the program between different systems of the same type.
 
 ## 1.3 Disclaimer
 High illumination powers represent a safety hazard for the equipment and for the operators. We assume that this software will be used by qualified personnel, with a sufficient degree of understanding of the system being used and of the process of light power intensity assessment. It is also assumed that all applicable laser safety regulations are followed.
 
-This program was tested successfully in a specific microscope. We provide it in the hope that it is helpful, but we cannot provide support or warranty of any kind. Differences between similar microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations needed from one to another require the understanding of the code. Despite unlikely, damage to the equipment caused by wrong edits or by unforeseen circumstances is still possible. While unlikely, damage to the equipment caused by wrong edits or by unforeseen circumstances is still possible. Proceed at your own risk, following the local safety regulations and  by by ensuring complete understanding of the programs prior to their execution. In particular, for testing purposes we strongly advise to employ low laser power settings and reduced number of loops.
+This program was tested successfully in a specific microscope. We provide it in the hope that it is helpful, but we cannot provide support or warranty of any kind. Differences between similar microscopes (filters, light paths, etc.) are to be expected and the usually minor adaptations needed from one to another require the understanding of the code. While unlikely, damage to the equipment caused by wrong edits or by unforeseen circumstances is still possible. Proceed at your own risk, following the local safety regulations and  by by ensuring complete understanding of the programs prior to their execution. In particular, for testing purposes we strongly advise to employ low laser power settings and reduced number of loops.
 
 # 2 Installation
 ## 2.1 Macro files
@@ -32,7 +32,7 @@ The "Zen macro" runs under Zen Black. If you have Microsoft Office installed on 
 
 	C:\Users\your-username\Documents\Carl Zeiss\ZEN\Documents\Macros
 
-to make the macro available. If you do not have Microsoft Office installed on your computer, copy the VBA file called "Power-Measurement-without-Office.lvb" in the same directory. If desiredUser is "all users" the macro will be available for all windows users
+to make the macro available. If you do not have Microsoft Office installed on your computer, copy the VBA file called "Power-Measurement-without-Office.lvb" in the same directory. If desiredUser is set to "all users" the macro will be available for all windows users
 
 ## 2.2 Python interpreter
 The Zen macro connects to a python interpreter and invokes the 
@@ -44,9 +44,11 @@ https://github.com/QUAREP-LiMi/QUAREP-LiMi-Tool-Kit
 The TLPM files from Thorlabs bring the low level access to the power meter device. You can download the Thorlabs software under
 
 https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=OPM
+
+Install it afterwards and test by running the software if the Thorlabs power meter can be connected.
  
 ## 2.4 Ophir power meter
-To able to use the Ophir power meter you need to download the latest version of StarLabs
+To be able to use the Ophir power meter you need to download the latest version of StarLabs
 
 https://www.ophiropt.com/laser--measurement/software/starlab-for-usb
 
@@ -162,7 +164,7 @@ In the following table you can find the standard source folder and the suggested
     </tbody>
 </table>
 
-# 3.2 Alter "TLMPX.py" file (should not be necessary any more, only in case the .py or .dll is not found)
+# 3.2 Modifying the "TLPMX.py" file (should not be necessary any more, only in case the .py or .dll is not found)
 Open the file
 
 	“TLPMX.py” 
@@ -182,7 +184,7 @@ Create an experiment in the ZEN Black software according to the QUAREP Power Mea
 
 https://www.protocols.io/view/illumination-power-stability-and-linearity-measure-5jyl853ndl2w/v2
 
-No laser source must be chosen. Note that depending on the software version a continuous measurement mode is not possible if point scan is selected. Therefore a “Time Series” with maximum number of cycles has to be selected. (It has not been tested yet if this is long enough for a “Long Measurement” of 2 hours). Save the experiment under the same name as the “expName” in the “measurementConfig.csv” file.
+No laser source should be selected. Note that depending on the software version a continuous measurement mode is not possible if point scan is selected. Therefore a “Time Series” with maximum number of cycles has to be selected. (It has not been tested yet if this is long enough for a “Long Measurement” of 2 hours). Save the experiment under the same name as the “expName” in the “measurementConfig.csv” file.
 
 ## 4.2 Load the macro
 To load the macro go to the top menu and select “Macro…” from the drop down menu of the “Macro” (shortcut ALT+F8)). Click on load and search for the folder in which you stored the macro and choose the file “Power-Measurement.lvb” (or “Power-Measurement-without-Office.lvb”). You can assign it to the drop down menu by clicking on the tab “Assign Macro” and then choose the file again and insert a name.
@@ -268,14 +270,25 @@ Before you start you have to choose your wavelength, beam splitter, power and ty
     </tbody>
 </table>
 
-If you have a temperature sensor is connected to you Thorlabs power meter you can check this option. Do not check this option if no temperature sensor is connected to you Thorlabs device as this will lead to an error. The measurement results will be save under
+If you have a temperature sensor connected to your Thorlabs power meter you can check this option. Do not check this option if no temperature sensor is connected to you Thorlabs device as this will lead to an error. The measurement results will be save under
 
 	C:\Users\your-username\QUAREP\PowerMeasurement\output\
 
-# 5. Contribution
+# 5. Issues
+Most issues that can occur are due to specific rights of some folder. Make sure that you have the right to access the folders where the config file and output is saved. Other issues that occur can be related to Python. You can test if the python script works by opening a command line interface. Press "Windows + R" on your keyboard and type "cmd". Make sure the Thorlabs Power Meter is connected to your computer via USB and is turned on. Now run a test command:
+
+	C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\python "C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\TLPM.py" 488 10 "C:\Users\your-username\QUAREP\PowerMeasurement\test.txt" 10 1 1 0
+
+Replace "your-username" with the actual username in your system. This will start to collect data from the power meter for 10 seconds saving it into a textfile under
+
+	C:\Users\your-username\QUAREP\PowerMeasurement\test.txt
+
+If data is acquired, the python script is running fine.
+
+# 6. Contribution
 Your contributions, comments and participation are very welcome. We are happy if you can copy and modify these macros for your needs, but if they also benefit the rest of the microscopy community we invite you to join us as a contributor.
 
-## 5.1 Authors
+## 6.1 Authors
 ### Macros (”Power-Measurement.lvb",”Power-Measurement-without-office.lvb")
 Arne Fallisch (Life Imaging Center, Albert–Ludwigs–Universität Freiburg) arne.fallisch@bioss.uni-freiburg.de<br />
 
