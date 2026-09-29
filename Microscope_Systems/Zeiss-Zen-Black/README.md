@@ -75,13 +75,9 @@ The Thorlabs dll (e) can be found under:
 
 The folders may vary depending on your operation system. Copy both files into the “PythonScripts” folder. 
 
-The "pywin32" package f is only needed for the Ophir power meter. To install the "pywin32" package open a command prompt and change the folder to 
+The "pywin32" package f is only needed for the Ophir power meter. To install the "pywin32" package open a command prompt and type 
 
-C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\
-
-and type
-
-	pip install pywin32
+C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\python\pip install pywin32
 
 In the following table you can find the standard source folder and the suggested destination folder:
 
@@ -277,7 +273,7 @@ If you have a temperature sensor connected to your Thorlabs power meter you can 
 # 5. Issues
 Most issues that can occur are due to specific rights of some folder. Make sure that you have the right to access the folders where the config file and output is saved. Other issues that occur can be related to Python. You can test if the python script works by opening a command line interface. Press "Windows + R" on your keyboard and type "cmd". Make sure the Thorlabs Power Meter is connected to your computer via USB and is turned on. Now run a test command:
 
-	C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\python "C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\TLPM.py" 488 10 "C:\Users\your-username\QUAREP\PowerMeasurement\test.txt" 10 1 1 0
+	"C:\Program Files\QuaRep\QUAREP-LiMi Tool Kit\python\python.exe" "A:\Data\QUAREP\Power\pythonScripts\measurePowers.pyw" 488 10 "C:\Users\Your-username\QUAREP\PowerMeasurement\Output\test.txt" 10 1 1 0
 
 Replace "your-username" with the actual username in your system. This will start to collect data from the power meter for 10 seconds saving it into a textfile under
 
