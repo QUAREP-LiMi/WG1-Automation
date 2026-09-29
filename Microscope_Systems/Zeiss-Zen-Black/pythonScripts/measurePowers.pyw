@@ -59,84 +59,96 @@ if len(sys.argv) > 7:
 # connect to power meter and perform measurement
 try:
     # Open connection to Ophir power meter
-    OphirCOM = win32com.client.Dispatch("OphirLMMeasurement.CoLMMeasurement")
-    # Stop & Close all devices
-    OphirCOM.StopAllStreams()
-    OphirCOM.CloseAll()
-    # Scan for connected Devices
-    DeviceList = OphirCOM.ScanUSB()
-    if len(DeviceList) != 0:
-        DeviceHandle = OphirCOM.OpenUSBDevice(DeviceList[0])	# open first device
-        exists = OphirCOM.IsSensorExists(DeviceHandle, 0)
-        if exists:
-            print("Ophir power meter connected!")
+    try:
+        OphirCOM = win32com.client.Dispatch("OphirLMMeasurement.CoLMMeasurement")
+    except Exception as e:
+        print("Ophir COM server not found or software not installed. Checking for Thorlabs power meter")
+        OphirCOM = None
+        
+    if OphirCOM is not None:
+        # Stop & Close all devices
+        OphirCOM.StopAllStreams()
+        OphirCOM.CloseAll()
+        # Scan for connected Devices
+        DeviceList = OphirCOM.ScanUSB()
+        if len(DeviceList) != 0:
+            DeviceHandle = OphirCOM.OpenUSBDevice(DeviceList[0])	# open first device
+            exists = OphirCOM.IsSensorExists(DeviceHandle, 0)
+            if exists:
+                print("Ophir power meter connected!")
 
-            # check if file is empty, if not print headline
-            if fout and os.stat(sys.argv[3]).st_size == 0:
-                print("timestamp", "wavelength", "setting", "power", end='', sep='\t')
-                print("timestamp", "wavelength", "setting", "power", end='', sep='\t', file=fout)
-                print("\nYYYY-MM-DD HH:MM:SS", "nm", "s", "W", end='', sep='\t')
-                print("\nYYYY-MM-DD HH:MM:SS", "nm", "s", "W", end='', sep='\t', file=fout)
+                # check if file is empty, if not print headline
+                if fout and os.stat(sys.argv[3]).st_size == 0:
+                    print("timestamp", "wavelength", "setting", "power", end='', sep='\t')
+                    print("timestamp", "wavelength", "setting", "power", end='', sep='\t', file=fout)
+                    print("\nYYYY-MM-DD HH:MM:SS", "nm", "s", "W", end='', sep='\t')
+                    print("\nYYYY-MM-DD HH:MM:SS", "nm", "s", "W", end='', sep='\t', file=fout)
 
-            print('\n----------Data for S/N {0} ---------------'.format(DeviceList[0]))
+                print('\n----------Data for S/N {0} ---------------'.format(DeviceList[0]))
 
-            # Set wavelength and range (auto)
-            ranges = OphirCOM.GetRanges(DeviceHandle, 0)
-            OphirCOM.AddWavelength(DeviceHandle, 0, wavelength)
-            wavelengthList = OphirCOM.GetWavelengths(DeviceHandle, 0)
-            #print(wavelengthList)
-            OphirCOM.SetWavelength(DeviceHandle, 0, len(wavelengthList[1])-1)
-            #print(wavelengthList[1][len(wavelengthList[1])-1])
-            OphirCOM.SetRange(DeviceHandle, 0, 0)
+                # Set wavelength and range (auto)
+                ranges = OphirCOM.GetRanges(DeviceHandle, 0)
+                OphirCOM.AddWavelength(DeviceHandle, 0, wavelength)
+                wavelengthList = OphirCOM.GetWavelengths(DeviceHandle, 0)
+                #print(wavelengthList)
+                OphirCOM.SetWavelength(DeviceHandle, 0, len(wavelengthList[1])-1)
+                #print(wavelengthList[1][len(wavelengthList[1])-1])
+                OphirCOM.SetRange(DeviceHandle, 0, 0)
 
-            # start measuring
-            OphirCOM.StartStream(DeviceHandle, 0)
+                # start measuring
+                OphirCOM.StartStream(DeviceHandle, 0)
 
-            # Without this delay the first values are lower than the rest or lead to no counting 
-            time.sleep(5)
-            
-            # set starttime and measurement duration       
-            start = datetime.now()
-            average_until = start 
-            average_count = 0
-            measure_until = start + timedelta(seconds=duration)
-            average_until = start + timedelta(seconds=avgTime)
-            average_start = average_until - timedelta(seconds=float(integration))
-            while datetime.now() < measure_until:
-                if datetime.now() >= average_start:
-                    average_count = 0
-                    total_power = 0
-                    start_average = datetime.now()
-                    #print('start_average = {0}, average_until = {1}\n'.format(start_average,average_until))
-                    while (datetime.now() < average_until):
-                        data = OphirCOM.GetData(DeviceHandle, 0)
-                        #time.sleep(0.2)  # wait a little for data
-                        if len(data[0]) > 0:  # if any data available, print the first one from the batch
-                            #print('Reading = {0}, TimeStamp = {1}, Status = {2}, Count = {3}'.format(data[0][0], data[1][0], data[2][0], average_count+1))
-                            total_power += (data[0][0])
-                            average_count += 1
+                # Without this delay the first values are lower than the rest or lead to no counting 
+                time.sleep(5)
+                
+                # set starttime and measurement duration       
+                start = datetime.now()
+                average_until = start 
+                average_count = 0
+                measure_until = start + timedelta(seconds=duration)
+                average_until = start + timedelta(seconds=avgTime)
+                average_start = average_until - timedelta(seconds=float(integration))
+                while datetime.now() < measure_until:
+                    if datetime.now() >= average_start:
+                        average_count = 0
+                        total_power = 0
+                        start_average = datetime.now()
+                        #print('start_average = {0}, average_until = {1}\n'.format(start_average,average_until))
+                        while (datetime.now() < average_until):
+                            data = OphirCOM.GetData(DeviceHandle, 0)
+                            #time.sleep(0.2)  # wait a little for data
+                            if len(data[0]) > 0:  # if any data available, print the first one from the batch
+                                #print('Reading = {0}, TimeStamp = {1}, Status = {2}, Count = {3}'.format(data[0][0], data[1][0], data[2][0], average_count+1))
+                                total_power += (data[0][0])
+                                average_count += 1
 
-                    # calculate arithmetic mean of power and temperature
-                    if average_count > 0:
-                        total_power /= average_count
-                        #ts = (start_average - start).total_seconds()
+                        # calculate arithmetic mean of power and temperature
+                        if average_count > 0:
+                            total_power /= average_count
+                            #ts = (start_average - start).total_seconds()
 
-                        print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level, total_power, average_count,  
-                              end='', sep='\t')
-                        if fout:
-                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
-                                  total_power, end='', sep='\t', file=fout)
-                    else:
-                        print('\naverage_count = 0')
-                    average_until += timedelta(seconds=avgTime)
-                    average_start = average_until - timedelta(seconds=float(integration))
-            # close the file
-            if fout:
-                fout.close()
+                            print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level, total_power, average_count,  
+                                  end='', sep='\t')
+                            if fout:
+                                print('\n' + start_average.strftime("%Y-%m-%d %H:%M:%S.%f")[:-3], int(wavelength), power_level,
+                                      total_power, end='', sep='\t', file=fout)
+                        else:
+                            print('\naverage_count = 0')
+                        average_until += timedelta(seconds=avgTime)
+                        average_start = average_until - timedelta(seconds=float(integration))
+                # close the file
+                if fout:
+                    fout.close()
+                measured = True
+            else:
+                print('Sensor is not connected to Ophir Juno!')
+                measured = False
         else:
-            print('Sensor is not connected to Ophir Juno!')
-
+            measured = False
     else:
+        measured = False
+    
+    if not measured:
         tlPM = TLPMX()
         deviceCount = c_uint32()
         try:
@@ -269,10 +281,12 @@ except OSError as err:
 except:
     traceback.print_exc()
 
-# Stop & Close all devices
-OphirCOM.StopAllStreams()
-OphirCOM.CloseAll()
-
+if OphirCOM is not None:
+    try:
+        # Stop & Close all devices
+        OphirCOM.StopAllStreams()
+        OphirCOM.CloseAll()
+    except:
+        pass
 # Release the object
 OphirCOM = None
-
